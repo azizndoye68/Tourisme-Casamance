@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "settings",
+    "pluralName": "settings",
+    "displayName": "Paramètres du site",
+    "description": "Configuration globale du site"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "timestamps": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": false
+    }
+  },
+  "attributes": {
+    "nomSite": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "default": "Casamance"
+    },
+    "telephone": {
+      "type": "string",
+      "required": false,
+      "maxLength": 30
+    },
+    "email": {
+      "type": "email",
+      "required": false,
+      "maxLength": 100
+    },
+    "whatsapp": {
+      "type": "string",
+      "required": false,
+      "maxLength": 30
+    },
+    "reseauxSociaux": {
+      "type": "json",
+      "required": false,
+      "description": "Instagram, Facebook, YouTube URLs"
+    }
+  }
+}

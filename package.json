@@ -1,0 +1,35 @@
+{
+  "name": "tourisme-casamance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine tourisme Casamance (Sénégal) - Next.js + Strapi + PostgreSQL",
+  "scripts": {
+    "dev": "docker compose up --build",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:strapi": "npm run develop --workspace=strapi",
+    "build": "npm run build --workspaces",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:strapi": "npm run build --workspace=strapi",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "test": "npm run test --workspaces",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down postgres",
+    "db:logs": "docker compose logs -f postgres",
+    "strapi:seed": "npm run seed --workspace=strapi",
+    "clean": "docker compose down -v && rm -rf frontend/.next strapi/.tmp strapi/dist node_modules frontend/node_modules strapi/node_modules",
+    "postinstall": "npm run prepare:husky",
+    "prepare:husky": "cd frontend && npx husky install && cd ../strapi && npx husky install"
+  },
+  "workspaces": [
+    "frontend",
+    "strapi"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "npm@10.8.2",
+  "devDependencies": {
+    "husky": "^9.1.6"
+  }
+}

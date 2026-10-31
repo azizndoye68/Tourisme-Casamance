@@ -1,0 +1,145 @@
+{
+  "common": {
+    "siteName": "Casamance",
+    "tagline": "Joyau du Sud Sénégal",
+    "menu": {
+      "destinations": "Destinations",
+      "activities": "Activités",
+      "itineraries": "Itinéraires",
+      "whenToGo": "Quand partir",
+      "whereToStay": "Où dormir"
+    },
+    "cta": "Planifier mon voyage",
+    "whatsapp": "WhatsApp",
+    "newsletter": "S'inscrire à la newsletter",
+    "emailPlaceholder": "Votre email",
+    "submit": "Envoyer",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "readMore": "Lire la suite",
+    "viewAll": "Voir tout",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent"
+  },
+  "header": {
+    "logoAlt": "Logo Casamance",
+    "navAriaLabel": "Navigation principale",
+    "languageAriaLabel": "Changer de langue",
+    "menuAriaLabel": "Ouvrir le menu"
+  },
+  "footer": {
+    "description": "Découvrez la Casamance, terre de mangroves, de plages et de culture diola.",
+    "links": {
+      "legal": "Mentions légales",
+      "privacy": "Confidentialité",
+      "contact": "Contact"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "youtube": "YouTube"
+    },
+    "copyright": "© {year} Casamance. Tous droits réservés."
+  },
+  "home": {
+    "hero": {
+      "badge": "Sud du Sénégal",
+      "title": "Là où la mangrove rencontre l'océan",
+      "titleAccent": "mangrove",
+      "subtitle": "Explorez 28 350 km² de nature préservée, 300 km de fleuve majestueux et des îles sans voitures. Bienvenue en Casamance, le cœur vert du Sénégal.",
+      "ctaPrimary": "Voir les itinéraires",
+      "ctaSecondary": "Explorer les lieux",
+      "stats": {
+        "area": "28 350 km² de territoire",
+        "river": "300 km de fleuve",
+        "carFree": "0 voiture à Carabane"
+      },
+      "seasonBadge": "Saison sèche nov. à mai"
+    },
+    "canopy": {
+      "text": "Plages ✦ Mangroves ✦ Culture diola ✦ Écotourisme ✦ Pirogue"
+    },
+    "greenCasamance": {
+      "title": "Mangroves, palmeraies et forêts à perte de vue",
+      "plants": [
+        "Palétuviers",
+        "Palmeraies",
+        "Caïlcédrats",
+        "Fromagers",
+        "Rôniers",
+        "Flamboyants"
+      ]
+    },
+    "destinations": {
+      "title": "Nos destinations",
+      "items": [
+        { "name": "Île de Carabane", "subtitle": "Île historique sans voitures", "featured": true },
+        { "name": "Cap Skirring", "subtitle": "Plages de sable blanc", "featured": false },
+        { "name": "Oussouye", "subtitle": "Cœur de la culture diola", "featured": false },
+        { "name": "Kafountine & Abéné", "subtitle": "Pêche et plages animées", "featured": false },
+        { "name": "Basse Casamance", "subtitle": "Nature et villages authentiques", "featured": false }
+      ]
+    },
+    "activities": {
+      "title": "Expériences incontournables",
+      "items": [
+        { "number": "01", "title": "Pirogue dans les bolongs", "description": "Glissez au fil de l'eau entre mangroves et villages.", "theme": "Nature" },
+        { "number": "02", "title": "Observation des oiseaux", "description": "Plus de 300 espèces dans les réserves naturelles.", "theme": "Nature" },
+        { "number": "03", "title": "Villages et poterie", "description": "Rencontrez les artisans et leurs savoir-faire ancestraux.", "theme": "Culture" },
+        { "number": "04", "title": "Marchés et gastronomie", "description": "Goûtez au thiéboudienne, aux fruits de mer et aux jus locaux.", "theme": "Gastronomie" }
+      ]
+    },
+    "itineraries": {
+      "title": "Itinéraires suggérés",
+      "items": [
+        {
+          "days": 3,
+          "title": "Le grand classique",
+          "steps": ["Ziguinchor → Cap Skirring", "Cap Skirring → Carabane", "Carabane → Ziguinchor"]
+        },
+        {
+          "days": 5,
+          "title": "Nature et culture",
+          "steps": ["Ziguinchor → Oussouye", "Oussouye → Carabane", "Carabane → Kafountine", "Kafountine → Abéné", "Abéné → Ziguinchor"]
+        },
+        {
+          "days": 7,
+          "title": "La Casamance complète",
+          "steps": ["Ziguinchor", "Oussouye", "Elinkine", "Carabane", "Kafountine", "Abéné", "Cap Skirring", "Retour Ziguinchor"]
+        }
+      ]
+    },
+    "whenToGo": {
+      "title": "Quand partir ?",
+      "drySeason": {
+        "label": "Saison sèche",
+        "period": "Nov. à Mai",
+        "description": "Climat idéal, peu de pluie, mer calme. Parfait pour plages et pirogue."
+      },
+      "wetSeason": {
+        "label": "Hivernage",
+        "period": "Juin à Oct.",
+        "description": "Verdure éclatante, moins de touristes, prix doux. Attention aux pluies."
+      }
+    },
+    "whereToStay": {
+      "title": "Où dormir ?",
+      "types": ["Campement", "Écolodge", "Hôtel"]
+    },
+    "testimonial": {
+      "quote": "« La Casamance m'a bouleversé. C'est une Afrique authentique, généreuse, où le temps s'arrête entre deux coups de pagaie. »",
+      "author": "Marie D.",
+      "country": "France"
+    },
+    "cta": {
+      "title": "Prêt pour l'aventure ?",
+      "subtitle": "Recevez nos itinéraires, bons plans et actualités par email.",
+      "whatsappText": "Discuter sur WhatsApp"
+    }
+  },
+  "seo": {
+    "defaultTitle": "Casamance - Joyau du Sud Sénégal | Tourisme & Culture",
+    "defaultDescription": "Découvrez la Casamance : mangroves, plages, culture diola, écotourisme. Itinéraires, hébergements, activités et infos pratiques pour votre voyage au Sud du Sénégal."
+  }
+}

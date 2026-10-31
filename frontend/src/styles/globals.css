@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-bricolage-grotesque: 'Bricolage Grotesque', sans-serif;
+    --font-manrope: 'Manrope', sans-serif;
+  }
+
+  * {
+    @apply border-forest/10;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-cream text-forest font-body antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-emerald ring-offset-2 ring-offset-cream;
+  }
+
+  ::selection {
+    @apply bg-emerald/20 text-forest;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px];
+  }
+
+  .section {
+    @apply py-18 sm:py-22 lg:py-30;
+  }
+
+  .section-title {
+    @apply font-display text-h2-mobile sm:text-h2-desktop text-forest;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-body-lg text-muted max-w-2xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-body text-body font-semibold
+           rounded-pill h-12 px-6 transition-all duration-300 ease-spring
+           focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-emerald text-cream hover:bg-leaf active:bg-forest
+           focus-visible:ring-emerald focus-visible:ring-offset-cream;
+  }
+
+  .btn-secondary {
+    @apply btn bg-forest text-cream hover:bg-leaf active:bg-emerald
+           focus-visible:ring-forest focus-visible:ring-offset-cream;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-forest text-forest hover:bg-forest/5 active:bg-forest/10
+           focus-visible:ring-forest focus-visible:ring-offset-cream;
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] text-white hover:bg-[#1DA851] active:bg-[#128C3E]
+           focus-visible:ring-[#25D366] focus-visible:ring-offset-cream;
+  }
+
+  .card {
+    @apply rounded-card-lg bg-white overflow-hidden shadow-card transition-all duration-400 ease-spring
+           hover:shadow-[0_16px_48px_-12px_rgb(14_42_32_/_0.2)] hover:-translate-y-1;
+  }
+
+  .card-arch-image {
+    @apply relative aspect-[4/3] overflow-hidden rounded-arch;
+  }
+
+  .card-arch-image img {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-spring;
+  }
+
+  .card:hover .card-arch-image img {
+    @apply scale-105;
+  }
+
+  .leaf-chip {
+    @apply inline-flex items-center gap-1.5 rounded-leaf bg-mint px-4 py-2 text-body-sm text-leaf font-medium
+           border border-mint/50;
+  }
+
+  .arch-badge {
+    @apply absolute -top-3 -right-3 sm:-top-4 sm:-right-4 transform rotate-6
+           bg-coral text-cream text-caption px-3 py-1 rounded-pill shadow-soft whitespace-nowrap;
+  }
+
+  .canopy-divider {
+    @apply relative h-16 w-full overflow-hidden;
+  }
+
+  .canopy-divider::before {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-[60px] bg-forest;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='%230E2A20' d='M0,60 C150,0 300,120 450,60 C600,0 750,120 900,60 C1050,0 1200,60 1200,60 L1200,120 L0,120 Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center bottom;
+  }
+
+  .month-strip {
+    @apply flex flex-wrap gap-2 justify-center;
+  }
+
+  .month-strip-item {
+    @apply px-3 py-1.5 text-caption font-medium rounded-pill transition-colors duration-200;
+  }
+
+  .month-strip-item.active {
+    @apply bg-emerald text-cream;
+  }
+
+  .month-strip-item.inactive {
+    @apply bg-forest/10 text-muted hover:bg-forest/20;
+  }
+
+  .input-field {
+    @apply w-full rounded-card bg-white border border-forest/20 px-4 py-3.5 text-body text-forest
+           placeholder:text-muted transition-all duration-200
+           focus:border-emerald focus:ring-2 focus:ring-emerald/20 focus:outline-none
+           disabled:bg-forest/5 disabled:cursor-not-allowed;
+  }
+
+  .label {
+    @apply block mb-2 text-body-sm font-medium text-forest;
+  }
+
+  .h1-hero {
+    @apply font-display text-h2-mobile sm:text-h2-desktop text-forest leading-tight;
+  }
+
+  .h1-hero-accent {
+    @apply text-emerald;
+  }
+
+  .hero-subtitle {
+    @apply mt-6 text-body-lg sm:text-[20px] text-muted max-w-xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

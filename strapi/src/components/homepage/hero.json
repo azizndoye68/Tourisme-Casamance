@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_homepage_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Section hero de la page d'accueil"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "titre": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "titreAccent": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Mot à mettre en couleur emerald"
+    },
+    "sousTitre": {
+      "type": "text",
+      "required": true,
+      "maxLength": 500
+    },
+    "ctaPrincipalTexte": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "ctaPrincipalLien": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "ctaSecondaireTexte": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "ctaSecondaireLien": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "imagePrincipale": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": true
+    },
+    "imageSecondaire": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "required": false
+    },
+    "badgeSaison": {
+      "type": "string",
+      "required": false,
+      "maxLength": 50
+    }
+  }
+}

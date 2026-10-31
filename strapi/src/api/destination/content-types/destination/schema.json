@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "destinations",
+  "info": {
+    "singularName": "destination",
+    "pluralName": "destinations",
+    "displayName": "Destination",
+    "description": "Lieux à visiter en Casamance"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "increments": true,
+    "timestamps": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nom",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["ville", "ile", "plage", "nature", "culture"],
+      "required": true,
+      "default": "nature"
+    },
+    "resume": {
+      "type": "text",
+      "required": true,
+      "maxLength": 300
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "galerie": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "latitude": {
+      "type": "decimal",
+      "required": false
+    },
+    "longitude": {
+      "type": "decimal",
+      "required": false
+    },
+    "tags": {
+      "type": "json",
+      "required": false
+    },
+    "miseEnAvant": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "activites": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::activite.activite",
+      "mappedBy": "destinations"
+    },
+    "hebergements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hebergement.hebergement",
+      "mappedBy": "destination"
+    }
+  }
+}

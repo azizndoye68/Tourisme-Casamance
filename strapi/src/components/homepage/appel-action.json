@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_homepage_appels_action",
+  "info": {
+    "displayName": "Appel à l'action",
+    "description": "Section CTA avec newsletter et WhatsApp"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "sousTitre": {
+      "type": "text",
+      "required": true,
+      "maxLength": 300
+    },
+    "texteNewsletter": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "default": "S'inscrire"
+    },
+    "texteWhatsApp": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "default": "Discuter sur WhatsApp"
+    },
+    "lienWhatsApp": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "default": "https://wa.me/221770000000"
+    }
+  }
+}

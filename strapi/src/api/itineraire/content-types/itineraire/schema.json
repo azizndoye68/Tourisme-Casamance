@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "itineraires",
+  "info": {
+    "singularName": "itineraire",
+    "pluralName": "itineraires",
+    "displayName": "Itinéraire",
+    "description": "Parcours jour par jour"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "increments": true,
+    "timestamps": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titre": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titre",
+      "required": true
+    },
+    "nombreJours": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 30
+    },
+    "resume": {
+      "type": "text",
+      "required": true,
+      "maxLength": 300
+    },
+    "etapes": {
+      "type": "component",
+      "component": "itineraire.etape",
+      "repeatable": true,
+      "required": true,
+      "min": 1
+    }
+  }
+}

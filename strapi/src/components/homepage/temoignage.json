@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_homepage_temoignages",
+  "info": {
+    "displayName": "Témoignage hero",
+    "description": "Grand témoignage pour la page d'accueil"
+  },
+  "options": {},
+  "attributes": {
+    "citation": {
+      "type": "text",
+      "required": true,
+      "maxLength": 1000
+    },
+    "auteur": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "pays": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    }
+  }
+}

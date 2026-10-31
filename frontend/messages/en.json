@@ -1,0 +1,145 @@
+{
+  "common": {
+    "siteName": "Casamance",
+    "tagline": "Jewel of Southern Senegal",
+    "menu": {
+      "destinations": "Destinations",
+      "activities": "Activities",
+      "itineraries": "Itineraries",
+      "whenToGo": "When to Go",
+      "whereToStay": "Where to Stay"
+    },
+    "cta": "Plan My Trip",
+    "whatsapp": "WhatsApp",
+    "newsletter": "Subscribe to Newsletter",
+    "emailPlaceholder": "Your email",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "header": {
+    "logoAlt": "Casamance Logo",
+    "navAriaLabel": "Main navigation",
+    "languageAriaLabel": "Change language",
+    "menuAriaLabel": "Open menu"
+  },
+  "footer": {
+    "description": "Discover Casamance, land of mangroves, beaches and Diola culture.",
+    "links": {
+      "legal": "Legal Notice",
+      "privacy": "Privacy Policy",
+      "contact": "Contact"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "youtube": "YouTube"
+    },
+    "copyright": "© {year} Casamance. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "badge": "Southern Senegal",
+      "title": "Where the mangrove meets the ocean",
+      "titleAccent": "mangrove",
+      "subtitle": "Explore 28,350 km² of preserved nature, 300 km of majestic river and car-free islands. Welcome to Casamance, the green heart of Senegal.",
+      "ctaPrimary": "View Itineraries",
+      "ctaSecondary": "Explore Places",
+      "stats": {
+        "area": "28,350 km² of territory",
+        "river": "300 km of river",
+        "carFree": "0 cars on Carabane"
+      },
+      "seasonBadge": "Dry season Nov. to May"
+    },
+    "canopy": {
+      "text": "Beaches ✦ Mangroves ✦ Diola Culture ✦ Ecotourism ✦ Pirogue"
+    },
+    "greenCasamance": {
+      "title": "Mangroves, palm groves and forests as far as the eye can see",
+      "plants": [
+        "Mangroves",
+        "Palm Groves",
+        "African Mahogany",
+        "Kapok Trees",
+        "Ronier Palms",
+        "Flamboyant Trees"
+      ]
+    },
+    "destinations": {
+      "title": "Our Destinations",
+      "items": [
+        { "name": "Carabane Island", "subtitle": "Historic car-free island", "featured": true },
+        { "name": "Cap Skirring", "subtitle": "White sand beaches", "featured": false },
+        { "name": "Oussouye", "subtitle": "Heart of Diola culture", "featured": false },
+        { "name": "Kafountine & Abéné", "subtitle": "Fishing & lively beaches", "featured": false },
+        { "name": "Lower Casamance", "subtitle": "Nature & authentic villages", "featured": false }
+      ]
+    },
+    "activities": {
+      "title": "Must-Do Experiences",
+      "items": [
+        { "number": "01", "title": "Pirogue in the Bolongs", "description": "Glide through water between mangroves and villages.", "theme": "Nature" },
+        { "number": "02", "title": "Bird Watching", "description": "Over 300 species in natural reserves.", "theme": "Nature" },
+        { "number": "03", "title": "Villages & Pottery", "description": "Meet artisans and their ancestral know-how.", "theme": "Culture" },
+        { "number": "04", "title": "Markets & Gastronomy", "description": "Taste thieboudienne, seafood and local juices.", "theme": "Gastronomy" }
+      ]
+    },
+    "itineraries": {
+      "title": "Suggested Itineraries",
+      "items": [
+        {
+          "days": 3,
+          "title": "The Classic",
+          "steps": ["Ziguinchor → Cap Skirring", "Cap Skirring → Carabane", "Carabane → Ziguinchor"]
+        },
+        {
+          "days": 5,
+          "title": "Nature & Culture",
+          "steps": ["Ziguinchor → Oussouye", "Oussouye → Carabane", "Carabane → Kafountine", "Kafountine → Abéné", "Abéné → Ziguinchor"]
+        },
+        {
+          "days": 7,
+          "title": "Complete Casamance",
+          "steps": ["Ziguinchor", "Oussouye", "Elinkine", "Carabane", "Kafountine", "Abéné", "Cap Skirring", "Return Ziguinchor"]
+        }
+      ]
+    },
+    "whenToGo": {
+      "title": "When to Go?",
+      "drySeason": {
+        "label": "Dry Season",
+        "period": "Nov. to May",
+        "description": "Ideal climate, little rain, calm sea. Perfect for beaches and pirogue."
+      },
+      "wetSeason": {
+        "label": "Rainy Season",
+        "period": "June to Oct.",
+        "description": "Lush greenery, fewer tourists, lower prices. Watch for rains."
+      }
+    },
+    "whereToStay": {
+      "title": "Where to Stay?",
+      "types": ["Camp", "Ecolodge", "Hotel"]
+    },
+    "testimonial": {
+      "quote": "\"Casamance blew me away. It's an authentic, generous Africa where time stands still between two paddle strokes.\"",
+      "author": "Marie D.",
+      "country": "France"
+    },
+    "cta": {
+      "title": "Ready for Adventure?",
+      "subtitle": "Receive our itineraries, tips and news by email.",
+      "whatsappText": "Chat on WhatsApp"
+    }
+  },
+  "seo": {
+    "defaultTitle": "Casamance - Jewel of Southern Senegal | Tourism & Culture",
+    "defaultDescription": "Discover Casamance: mangroves, beaches, Diola culture, ecotourism. Itineraries, accommodations, activities and practical info for your trip to Southern Senegal."
+  }
+}
