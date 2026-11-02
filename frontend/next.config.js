@@ -14,9 +14,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'clsx', 'tailwind-merge'],
   },
-  // Pour déploiement Vercel (standalone non nécessaire)
-  // Pour VPS : décommenter output: 'standalone'
-  // output: 'standalone',
+  output: 'standalone',
   async headers() {
     return [
       {

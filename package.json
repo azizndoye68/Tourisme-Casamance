@@ -5,26 +5,21 @@
   "description": "Site vitrine tourisme Casamance (Sénégal) - Next.js + Strapi + PostgreSQL",
   "scripts": {
     "dev": "docker compose up --build",
-    "dev:frontend": "npm run dev --workspace=frontend",
-    "dev:strapi": "npm run develop --workspace=strapi",
-    "build": "npm run build --workspaces",
-    "build:frontend": "npm run build --workspace=frontend",
-    "build:strapi": "npm run build --workspace=strapi",
-    "lint": "npm run lint --workspaces",
-    "lint:fix": "npm run lint:fix --workspaces",
-    "test": "npm run test --workspaces",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:strapi": "cd strapi && npm run develop",
+    "build": "cd frontend && npm run build && cd ../strapi && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:strapi": "cd strapi && npm run build",
+    "lint": "cd frontend && npm run lint && cd ../strapi && npm run lint",
+    "lint:fix": "cd frontend && npm run lint:fix && cd ../strapi && npm run lint:fix",
+    "test": "cd frontend && npm run test && cd ../strapi && npm run test",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down postgres",
     "db:logs": "docker compose logs -f postgres",
-    "strapi:seed": "npm run seed --workspace=strapi",
+    "strapi:seed": "cd strapi && npm run seed",
     "clean": "docker compose down -v && rm -rf frontend/.next strapi/.tmp strapi/dist node_modules frontend/node_modules strapi/node_modules",
-    "postinstall": "npm run prepare:husky",
-    "prepare:husky": "cd frontend && npx husky install && cd ../strapi && npx husky install"
+    "install:all": "cd frontend && npm install && cd ../strapi && npm install"
   },
-  "workspaces": [
-    "frontend",
-    "strapi"
-  ],
   "engines": {
     "node": ">=20.0.0"
   },

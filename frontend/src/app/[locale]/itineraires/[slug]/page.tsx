@@ -1,0 +1,67 @@
+import { getItineraireBySlug } from '@/lib/strapi';
+import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import ItineraireDetailClient from './ItineraireDetailClient';
+
+interface PageProps {
+  params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const itineraire = await getItineraireBySlug(slug, locale);
+
+  if (!itineraire) {
+    return { title: 'Itinéraire non trouvé' };
+  }
+
+  const t = await getTranslations({ locale, namespace: 'itineraires' });
+
+  return {
+    title: `${itineraire.titre} | ${t('pageTitle')}`,
+    description: itineraire.resume,
+    openGraph: {
+      title: itineraire.titre,
+      description: itineraire.resume,
+      type: 'website',
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const locales = ['fr', 'en'];
+  const params = [];
+
+  for (const locale of locales) {
+    try {
+      const itineraires = await getItineraires(locale);
+      for (const itin of itineraires) {
+        params.push({ locale, slug: itin.slug });
+      }
+    } catch (error) {
+      console.error(`Error generating static params for ${locale}:`, error);
+    }
+  }
+
+  return params;
+}
+
+import { getItineraires } from '@/lib/strapi';
+
+export default async function ItinerairePage({ params }: PageProps) {
+  const { locale, slug } = await params;
+
+  try {
+    const itineraire = await getItineraireBySlug(slug, locale);
+
+    if (!itineraire) {
+      notFound();
+    }
+
+    return <ItineraireDetailClient itineraire={itineraire} locale={locale as 'fr' | 'en'} />;
+  } catch (error) {
+    console.error('Error fetching itinerary:', error);
+    notFound();
+  }
+}

@@ -6,7 +6,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Globe, MapPin, Calendar, Bed, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { locales, localeNames, localeFlags, type Locale } from '@/lib/i18n';
-import { useTranslations, useLocale } from 'next-intl';
 
 const navItems = [
   { href: '/destinations', icon: MapPin, key: 'destinations' },
@@ -16,15 +15,33 @@ const navItems = [
   { href: '/hebergements', icon: Bed, key: 'whereToStay' },
 ] as const;
 
-export function Header() {
+interface HeaderProps {
+  locale: Locale;
+  pathname: string;
+  t: {
+    menu: {
+      destinations: string;
+      activities: string;
+      itineraries: string;
+      whenToGo: string;
+      whereToStay: string;
+    };
+    common: {
+      siteName: string;
+      cta: string;
+    };
+    header: {
+      navAriaLabel: string;
+      languageAriaLabel: string;
+      menuAriaLabel: string;
+    };
+  };
+}
+
+export function Header({ locale, pathname, t }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
   const router = useRouter();
-  const locale = useLocale() as Locale;
-  const t = useTranslations('common.menu');
-  const tCommon = useTranslations('common');
-  const tHeader = useTranslations('header');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -49,13 +66,13 @@ export function Header() {
     >
       <nav
         className="container-main"
-        aria-label={tHeader.navAriaLabel}
+        aria-label={t.header.navAriaLabel}
       >
         <div className="flex h-16 items-center justify-between gap-4">
           <Link
             href={`/${locale}`}
             className="flex items-center gap-2 shrink-0"
-            aria-label={tCommon.siteName}
+            aria-label={t.common.siteName}
           >
             <span className="relative">
               <svg
@@ -97,13 +114,13 @@ export function Header() {
                 aria-current={pathname === `/${locale}${item.href}` ? 'page' : undefined}
               >
                 <item.icon className="w-4 h-4" aria-hidden="true" />
-                {t(item.key)}
+                {t.menu[item.key]}
               </Link>
             ))}
           </div>
 
           <div className="hidden md:flex md:items-center md:gap-3">
-            <div className="relative" role="group" aria-label={tHeader.languageAriaLabel}>
+            <div className="relative" role="group" aria-label={t.header.languageAriaLabel}>
               <button
                 className="flex items-center gap-1.5 px-3 py-1.5 text-body-sm font-medium text-forest bg-forest/5 rounded-pill hover:bg-forest/10 transition-colors"
                 aria-haspopup="listbox"
@@ -135,7 +152,7 @@ export function Header() {
               href={`/${locale}/contact`}
               className="btn-primary hidden sm:inline-flex"
             >
-              {tCommon.cta}
+              {t.common.cta}
             </Link>
           </div>
 
@@ -144,7 +161,7 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? tHeader.menuAriaLabel.replace('Ouvrir', 'Fermer') : tHeader.menuAriaLabel}
+            aria-label={isMenuOpen ? t.header.menuAriaLabel.replace('Ouvrir', 'Fermer') : t.header.menuAriaLabel}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -157,7 +174,7 @@ export function Header() {
             isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           )}
           role="navigation"
-          aria-label={tHeader.navAriaLabel}
+          aria-label={t.header.navAriaLabel}
         >
           <div className="py-4 space-y-3 border-t border-forest/10">
             {navItems.map((item) => (
@@ -174,11 +191,11 @@ export function Header() {
                 aria-current={pathname === `/${locale}${item.href}` ? 'page' : undefined}
               >
                 <item.icon className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
-                {t(item.key)}
+                {t.menu[item.key]}
               </Link>
             ))}
             <div className="pt-4 border-t border-forest/10 flex items-center gap-3">
-              <div className="flex items-center gap-2" role="group" aria-label={tHeader.languageAriaLabel}>
+              <div className="flex items-center gap-2" role="group" aria-label={t.header.languageAriaLabel}>
                 {locales.map((loc) => (
                   <button
                     key={loc}
@@ -200,7 +217,7 @@ export function Header() {
               className="btn-primary w-full justify-center mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              {tCommon.cta}
+              {t.common.cta}
             </Link>
           </div>
         </div>

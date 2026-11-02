@@ -30,6 +30,8 @@
   },
   "footer": {
     "description": "Discover Casamance, land of mangroves, beaches and Diola culture.",
+    "practicalInfo": "Practical Info",
+    "legal": "Legal",
     "links": {
       "legal": "Legal Notice",
       "privacy": "Privacy Policy",

@@ -30,6 +30,8 @@
   },
   "footer": {
     "description": "Découvrez la Casamance, terre de mangroves, de plages et de culture diola.",
+    "practicalInfo": "Infos pratiques",
+    "legal": "Mentions légales",
     "links": {
       "legal": "Mentions légales",
       "privacy": "Confidentialité",

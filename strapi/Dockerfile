@@ -1,4 +1,4 @@
-# Strapi Dockerfile - Multi-stage build
+# Strapi Dockerfile - Multi-stage build for Strapi v5
 FROM node:20-alpine AS base
 
 # Install dependencies only when needed
@@ -16,7 +16,6 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
@@ -29,10 +28,11 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 strapi
 RUN adduser --system --uid 1001 strapi
 
-COPY --from=builder --chown=strapi:strapi /app/dist ./dist
+# Copy built admin panel and compiled JS
 COPY --from=builder --chown=strapi:strapi /app/node_modules ./node_modules
 COPY --from=builder --chown=strapi:strapi /app/package.json ./package.json
-COPY --from=builder --chown=strapi:strapi /app/.tmp ./.tmp
+COPY --from=builder --chown=strapi:strapi /app/src ./src
+COPY --from=builder --chown=strapi:strapi /app/config ./config
 COPY --from=builder --chown=strapi:strapi /app/public ./public
 
 USER strapi

@@ -42,15 +42,15 @@ export function CTA({ data }: CTAProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto" noValidate>
-              <label htmlName="newsletter-email" className="sr-only">
-                {t.newsletter}
+              <label htmlFor="newsletter-email" className="sr-only">
+                {t('newsletter')}
               </label>
               <input
                 type="email"
                 name="newsletter-email"
                 id="newsletter-email"
                 className="input-field flex-1"
-                placeholder={t.emailPlaceholder}
+                placeholder={t('emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={status === 'loading' || status === 'success'}
@@ -73,7 +73,7 @@ export function CTA({ data }: CTAProps) {
                 ) : (
                   <>
                     <Mail className="w-5 h-5" aria-hidden="true" />
-                    {t.submit}
+                    {t('submit')}
                   </>
                 )}
               </button>

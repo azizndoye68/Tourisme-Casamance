@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { ArrowRight, Users, Waves, TreePine } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useTranslations } from 'next-intl';
 
 interface HeroData {
   badge: string;
@@ -25,8 +24,6 @@ interface HeroProps {
 }
 
 export function Hero({ data }: HeroProps) {
-  const t = useTranslations('common');
-
   const stats = [
     { icon: TreePine, label: data.stats.area },
     { icon: Waves, label: data.stats.river },
@@ -46,7 +43,7 @@ export function Hero({ data }: HeroProps) {
               className="h1-hero animate-fade-in-up"
               style={{ animationDelay: '100ms' }}
             >
-              Là où la <span className="h1-hero-accent">{data.titleAccent}</span> rencontre l'océan
+              {data.title}
             </h1>
             <p className="hero-subtitle animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               {data.subtitle}

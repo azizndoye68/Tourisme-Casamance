@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLocale } from 'next-intl';

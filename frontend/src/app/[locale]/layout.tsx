@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Bricolage_Grotesque, Manrope } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { getMessages } from 'next-intl/server';
 import { locales, defaultLocale, isValidLocale } from '@/lib/i18n';
+import { getMessages } from '@/lib/messages';
 import '@/styles/globals.css';
 
-const bricolageGrotesque = Inter({
+const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage-grotesque',
   display: 'swap',
   weight: ['600', '800'],
 });
 
-const manrope = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
   display: 'swap',
@@ -26,17 +26,23 @@ interface LayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-export default async function LocaleLayout({ children, params }: LayoutProps) {
+interface Messages {
+  seo: {
+    defaultTitle: string;
+    defaultDescription: string;
+  };
+}
+
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
   const { locale } = await params;
 
   if (!isValidLocale(locale)) {
-    notFound();
+    return {};
   }
 
-  const messages = await getMessages();
-  const langDir = locale === 'ar' ? 'rtl' : 'ltr';
+  const messages = await getMessages(locale) as Messages;
 
-  const metadata: Metadata = {
+  return {
     title: {
       default: messages.seo.defaultTitle,
       template: '%s | Casamance',
@@ -65,13 +71,31 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       follow: true,
     },
   };
+}
 
-  const viewport: Viewport = {
+export async function generateViewport({ params }: LayoutProps): Promise<Viewport> {
+  const { locale } = await params;
+
+  if (!isValidLocale(locale)) {
+    return {};
+  }
+
+  return {
     themeColor: '#0E2A20',
     width: 'device-width',
     initialScale: 1,
     maximumScale: 5,
   };
+}
+
+export default async function LocaleLayout({ children, params }: LayoutProps) {
+  const { locale } = await params;
+
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
+  const langDir = 'ltr';
 
   return (
     <html lang={locale} dir={langDir} className={`${bricolageGrotesque.variable} ${manrope.variable}`}>
@@ -85,5 +109,3 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     </html>
   );
 }
-
-export { metadata, viewport };

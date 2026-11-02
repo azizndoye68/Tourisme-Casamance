@@ -197,12 +197,61 @@ docker compose -f docker-compose.prod.yml up -d
 # Configurer Nginx en reverse proxy + SSL (Let's Encrypt)
 ```
 
-## 📦 Scripts de Seed
+## 📦 Scripts de Seed (Strapi)
+
+Le projet inclut un système complet de seed pour peupler Strapi avec des données d'exemple **marquées `[À REMPLACER]`** — à remplacer par du contenu réel dans l'admin.
+
+### Structure des Seeds
+
+```
+strapi/src/database/seeds/
+├── index.ts                 # Lanceur principal (tous les seeds)
+├── 01-homepage.ts           # Page d'accueil (single type) FR/EN
+├── 02-settings.ts           # Paramètres du site (single type)
+├── 03-destinations.ts       # 5 destinations FR/EN
+├── 04-activites.ts          # 4 activités FR/EN
+├── 05-itineraires.ts        # 3 itinéraires FR/EN
+├── 06-hebergements.ts       # 6 hébergements FR/EN
+├── 07-temoignages.ts        # 5 témoignages FR/EN
+└── 08-link-relations.ts     # Lie les relations entre contenus
+```
+
+### Utilisation
 
 ```bash
+# Option 1: Via npm (recommandé) - lance tous les seeds dans l'ordre
 npm run strapi:seed
+
+# Option 2: Lancer un seed spécifique
+npm run strapi:seed -- --name=01-homepage
+npm run strapi:seed -- --name=03-destinations
+
+# Option 3: Directement avec Strapi CLI (si Strapi tourne)
+cd strapi && npm run seed:run
+cd strapi && npm run seed:run -- --name=01-homepage
 ```
-Crée des données d'exemple marquées `[À REMPLACER]` pour tester l'affichage.
+
+### Ordre d'Exécution Recommandé
+
+1. **Single types** : `01-homepage`, `02-settings` (indépendants)
+2. **Collection types** : `03-destinations`, `04-activites`, `05-itineraires`, `06-hebergements`, `07-temoignages`
+3. **Relations** : `08-link-relations` (doit être lancé **après** tous les contenus créés)
+
+### Contenu des Seeds
+
+Tous les textes sont préfixés par :
+- **Français** : `[À REMPLACER]`
+- **Anglais** : `[TO REPLACE]`
+
+**Images** : Les champs médias (galerie, hero, etc.) sont vides — à uploader manuellement dans l'admin Strapi.
+
+### Après le Seed
+
+1. Ouvrir l'admin Strapi : `http://localhost:1337/admin`
+2. Aller dans chaque type de contenu
+3. Remplacer les textes `[À REMPLACER]` par le vrai contenu
+4. Uploader les images pour chaque entrée
+5. Publier les entrées (bouton "Publier")
 
 ## 🤝 Contribution
 
