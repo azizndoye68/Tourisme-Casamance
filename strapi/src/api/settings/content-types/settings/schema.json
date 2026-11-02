@@ -1,9 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "settings",
+  "collectionName": "site_settings",
   "info": {
     "singularName": "settings",
-    "pluralName": "settings",
+    "pluralName": "site-settings",
     "displayName": "Paramètres du site",
     "description": "Configuration globale du site"
   },

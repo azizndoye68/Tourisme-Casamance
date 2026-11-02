@@ -43,6 +43,7 @@ coverage/
 
 # Docker
 .docker/
+docker-compose.override.yml
 
 # Strapi
 strapi/.tmp/
