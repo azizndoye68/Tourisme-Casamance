@@ -4,8 +4,9 @@
 
 @layer base {
   :root {
-    --font-bricolage-grotesque: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
-    --font-manrope: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+    /* System font stacks keep pages fast while giving headings a more editorial feel. */
+    --font-bricolage-grotesque: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    --font-manrope: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     --page: #fbfaf5;
   }
 
@@ -23,8 +24,18 @@
 
   body {
     @apply bg-[#fbfaf5] text-forest font-body antialiased;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     text-rendering: optimizeLegibility;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-forest;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   :focus-visible {
@@ -55,15 +66,15 @@
   }
 
   .section-title {
-    @apply font-display text-3xl font-semibold leading-tight tracking-[-0.035em] text-forest sm:text-4xl lg:text-5xl;
+    @apply font-display text-3xl font-semibold leading-[1.08] tracking-[-0.025em] text-forest sm:text-4xl lg:text-5xl;
   }
 
   .section-subtitle {
-    @apply mx-auto mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg;
+    @apply mx-auto mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8;
   }
 
   .eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.2em] text-emerald sm:text-sm;
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.17em] text-emerald sm:text-xs;
   }
 
   .btn {

@@ -31,8 +31,15 @@ export default async function ItinerairesPage({ params }: PageProps) {
   const { locale } = await params;
 
   try {
+    const messages = await getMessages(locale);
     const itineraires = await getItineraires(locale);
-    return <ItinerairesClient itineraires={itineraires} locale={locale} />;
+    return (
+      <ItinerairesClient
+        itineraires={itineraires}
+        locale={locale as 'fr' | 'en'}
+        labels={messages.itineraires}
+      />
+    );
   } catch (error) {
     console.error('Error fetching itineraries:', error);
     notFound();

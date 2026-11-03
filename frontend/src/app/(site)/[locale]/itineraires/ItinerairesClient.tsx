@@ -1,140 +1,115 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Itineraire } from '@/lib/content';
-import { getContentImageUrl } from '@/lib/content';
+import Link from 'next/link';
+import { ArrowRight, CalendarDays, MapPin, Route } from 'lucide-react';
+import type { Itineraire } from '@/lib/content';
 
 interface ItinerairesClientProps {
   itineraires: Itineraire[];
-  locale: string;
+  locale: 'fr' | 'en';
+  labels: {
+    pageTitle: string;
+    pageDescription: string;
+    viewItinerary: string;
+    noItineraries: string;
+  };
 }
 
-const colorSchemes = [
-  { bg: 'bg-emerald', text: 'text-cream', accent: 'bg-emerald/10 text-emerald' },
-  { bg: 'bg-leaf', text: 'text-cream', accent: 'bg-leaf/10 text-leaf' },
-  { bg: 'bg-forest', text: 'text-cream', accent: 'bg-forest/10 text-forest' },
-  { bg: 'bg-lime', text: 'text-forest', accent: 'bg-lime/20 text-lime' },
-  { bg: 'bg-coral', text: 'text-cream', accent: 'bg-coral/10 text-coral' },
+const editorialPhotos = [
+  'photo-1500375592092-40eb2168fd21',
+  'photo-1448375240586-882707db888b',
+  'photo-1518837695005-2083093ee35b',
 ];
 
-export default function ItinerairesClient({ itineraires, locale }: ItinerairesClientProps) {
-  const t = useTranslations('itineraires');
-  const isFr = locale === 'fr';
+const translations = {
+  fr: { eyebrow: 'Des idées de séjour', days: 'jours', stops: 'étapes', route: 'Le parcours', duration: 'De 3 à 7 jours', region: 'Du fleuve à l’océan' },
+  en: { eyebrow: 'Ideas for your trip', days: 'days', stops: 'stops', route: 'The route', duration: '3 to 7 days', region: 'From river to ocean' },
+};
+
+function shortPlace(title: string) {
+  return title.split(' - ')[0].split(' — ')[0].trim();
+}
+
+export default function ItinerairesClient({ itineraires, locale, labels }: ItinerairesClientProps) {
+  const copy = translations[locale];
 
   return (
-    <div className="container-main space-y-10 py-10 sm:space-y-12 sm:py-14">
-      {/* Header */}
-      <header className="text-center max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-forest tracking-tight mb-4">
-          {t('pageTitle')}
-        </h1>
-        <p className="text-lg text-muted max-w-2xl mx-auto">
-          {t('pageDescription')}
-        </p>
+    <div className="container-main space-y-8 py-8 sm:space-y-10 sm:py-12">
+      <header className="grid gap-7 overflow-hidden rounded-3xl bg-[#e8efe1] p-6 sm:p-9 md:grid-cols-[1fr_auto] md:items-end md:p-12">
+        <div className="max-w-2xl">
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h1 className="section-title mt-3">{labels.pageTitle}</h1>
+          <p className="section-subtitle mx-0">{labels.pageDescription}</p>
+        </div>
+        <div className="flex flex-wrap gap-2 md:max-w-56 md:justify-end">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2.5 text-sm font-semibold text-forest">
+            <CalendarDays className="h-4 w-4 text-emerald" aria-hidden="true" /> {copy.duration}
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2.5 text-sm font-semibold text-forest">
+            <Route className="h-4 w-4 text-emerald" aria-hidden="true" /> {copy.region}
+          </span>
+        </div>
       </header>
 
-      {/* Itinerary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {itineraires.map((itineraire, index) => {
-          const colors = colorSchemes[index % colorSchemes.length];
-          const firstDestination = itineraire.etapes[0]?.destination;
+      {itineraires.length > 0 ? (
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" role="list" aria-label={labels.pageTitle}>
+          {itineraires.map((itineraire, index) => {
+            const photo = editorialPhotos[index % editorialPhotos.length];
+            const places = itineraire.etapes.map((step) => shortPlace(step.titre)).filter(Boolean);
 
-          return (
-            <article
-              key={itineraire.documentId}
-              className={`group relative overflow-hidden rounded-card-xl ${colors.bg} ${colors.text} shadow-soft hover:shadow-xl transition-all`}
-            >
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-5" aria-hidden="true">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <defs>
-                    <pattern id="leaf-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M10 0 C15 5 15 15 10 20 C5 15 5 5 10 0" fill="currentColor" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#leaf-pattern)" />
-                </svg>
-              </div>
+            return (
+              <article key={itineraire.documentId} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-forest/10 bg-white shadow-[0_10px_35px_-25px_rgba(14,42,32,.5)] transition-shadow hover:shadow-[0_18px_42px_-24px_rgba(14,42,32,.4)]" role="listitem">
+                <div className="relative h-48 overflow-hidden bg-forest sm:h-52">
+                  <Image
+                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=900&q=70`}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    priority={index === 0}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest/65 via-transparent to-forest/10" aria-hidden="true" />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-forest shadow-sm">
+                    <CalendarDays className="h-4 w-4 text-emerald" aria-hidden="true" />
+                    {itineraire.nombreJours} {copy.days}
+                  </span>
+                  <span className="absolute bottom-4 right-4 rounded-full border border-white/40 bg-forest/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+                    {places.length} {copy.stops}
+                  </span>
+                </div>
 
-              <div className="relative p-6 md:p-8 h-full flex flex-col">
-                {/* Header with days */}
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill text-sm font-medium ${colors.accent}`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      {itineraire.nombreJours} {isFr ? 'jours' : 'days'}
-                    </span>
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h2 className="font-display text-xl font-semibold leading-snug tracking-tight text-forest sm:text-2xl">
+                    <Link href={`/${locale}/itineraires/${itineraire.slug}`} className="hover:text-emerald focus-visible:text-emerald">
+                      {itineraire.titre}
+                    </Link>
+                  </h2>
+                  <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{itineraire.resume}</p>
+
+                  <div className="mt-5 border-t border-forest/10 pt-4">
+                    <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-emerald">{copy.route}</p>
+                    <ol className="flex flex-wrap items-center gap-x-2 gap-y-2">
+                      {places.slice(0, 4).map((place, placeIndex) => (
+                        <li key={`${itineraire.slug}-${placeIndex}`} className="inline-flex items-center gap-2 text-xs font-medium text-forest/75">
+                          {placeIndex > 0 && <span className="text-emerald/50" aria-hidden="true">·</span>}
+                          <span>{place}</span>
+                        </li>
+                      ))}
+                      {places.length > 4 && <li className="text-xs font-semibold text-emerald">+{places.length - 4}</li>}
+                    </ol>
                   </div>
-                  {firstDestination && firstDestination.galerie?.[0] && (
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 border-current/20 flex-shrink-0">
-                      <Image
-                        src={getContentImageUrl(firstDestination.galerie[0]) || ''}
-                        alt={firstDestination.galerie[0].alternativeText || firstDestination.nom}
-                        fill
-                        className="object-cover"
-                        sizes="80px"
-                        placeholder="blur"
-                        blurDataURL={firstDestination.galerie[0].formats?.thumbnail?.url || firstDestination.galerie[0].url}
-                      />
-                    </div>
-                  )}
-                </div>
 
-                {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 flex-1">
-                  <Link href={`/${locale}/itineraires/${itineraire.slug}`} className="hover:underline transition-colors">
-                    {itineraire.titre}
+                  <Link href={`/${locale}/itineraires/${itineraire.slug}`} className="mt-auto flex min-h-12 items-center justify-between border-t border-forest/10 pt-4 text-sm font-semibold text-forest transition-colors hover:text-emerald">
+                    {labels.viewItinerary}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
-                </h2>
-
-                {/* Summary */}
-                <p className="text-current/80 mb-6 line-clamp-3 flex-1">{itineraire.resume}</p>
-
-                {/* Steps preview */}
-                <div className="space-y-3 mb-6 border-t border-current/20 pt-4">
-                  {itineraire.etapes.slice(0, 3).map((etape, i) => (
-                    <div key={etape.id} className="flex items-start gap-3 text-sm">
-                      <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${colors.bg} ${colors.text}`}>
-                        {etape.jour}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium truncate">{etape.titre}</p>
-                        {etape.destination && (
-                          <p className="text-current/70 text-xs">{etape.destination.nom}</p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                  {itineraire.etapes.length > 3 && (
-                    <p className="text-current/60 text-sm text-center">
-                      {isFr ? `... et ${itineraire.etapes.length - 3} autre${itineraire.etapes.length - 3 > 1 ? 's' : ''} jour${itineraire.etapes.length - 3 > 1 ? 's' : ''}` : `... and ${itineraire.etapes.length - 3} more day${itineraire.etapes.length - 3 > 1 ? 's' : ''}`}
-                    </p>
-                  )}
                 </div>
-
-                {/* CTA */}
-                <Link
-                  href={`/${locale}/itineraires/${itineraire.slug}`}
-                  className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-card font-semibold transition-all ${colors.bg === 'bg-lime' ? 'bg-forest text-cream hover:bg-leaf' : 'bg-forest/20 hover:bg-forest/30'}`}
-                >
-                  {t('viewItinerary')}
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      {itineraires.length === 0 && (
-        <div className="text-center py-16 text-muted">
-          <p>{t('noItineraries')}</p>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="rounded-2xl bg-white px-5 py-16 text-center text-muted shadow-soft">
+          <MapPin className="mx-auto h-8 w-8 text-emerald" aria-hidden="true" />
+          <p className="mt-4">{labels.noItineraries}</p>
         </div>
       )}
     </div>
