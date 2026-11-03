@@ -1,0 +1,578 @@
+{
+  "destinations": {
+    "fr": [
+      {
+        "nom": "Île de Carabane",
+        "slug": "ile-de-carabane",
+        "type": "ile",
+        "resume": "Ancienne capitale coloniale, Carabane est une île paisible sans voitures, accessible seulement en pirogue. Ses ruelles sablonneuses, son église centenaire et ses mangroves en font un havre de paix.",
+        "description": "Carabane, l'ancienne capitale de la Casamance, est une île hors du temps. Accessible uniquement par pirogue depuis Elinkine (30 min), elle n'a ni voitures ni routes goudronnées. On y circule à pied ou à vélo sur des chemins de sable bordés de fromagers centenaires. L'église Saint-Antoine (1885) témoigne du passé colonial. Les mangroves environnantes abritent une faune exceptionnelle : pélicans, hérons, crabes violonistes. Le soir, les couchers de soleil sur le fleuve sont spectaculaires. Hébergements chez l'habitant et petits campements écologiques.",
+        "latitude": 12.5583,
+        "longitude": -16.7333,
+        "tags": [
+          "patrimoine",
+          "mangrove",
+          "pirogue",
+          "calme",
+          "histoire"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Cap Skirring",
+        "slug": "cap-skirring",
+        "type": "plage",
+        "resume": "La station balnéaire la plus connue de Casamance, avec sa grande plage de sable fin bordée de filaos, ses hôtels et son aéroport international. Idéal pour la baignade et les sports nautiques.",
+        "description": "Cap Skirring est la porte d'entrée touristique de la Casamance. Sa plage de 20 km de sable blond, bordée de filaos, est l'une des plus belles d'Afrique de l'Ouest. L'aéroport international permet un accès direct depuis l'Europe (vols charters saisonniers). La station propose hôtels, restaurants, location de vélos, quad, pêche au gros, surf. Le marché artisanal offre sculptures, tissus, bijoux. À proximité : la plage de Kabrousse, le village de Boucotte, la forêt de Diembering. Ambiance animée en saison sèche, plus calme en hivernage.",
+        "latitude": 12.3956,
+        "longitude": -16.7508,
+        "tags": [
+          "plage",
+          "baignade",
+          "hotels",
+          "aeroport",
+          "artisanat"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Oussouye",
+        "slug": "oussouye",
+        "type": "ville",
+        "resume": "Cœur de la culture Diola, Oussouye est célèbre pour son roi traditionnel, ses cases à impluvium, son musée et le festival annuel du roi. Point de départ pour les rizières et la forêt sacrée.",
+        "description": "Oussouye est le centre culturel du peuple Diola. Le roi (prééminent chef coutumier) y réside dans le palais royal. Les cases à impluvium (cours centrale découverte drainant l'eau de pluie) sont typiques de l'architecture locale. Le musée d'Oussouye expose masques, instruments, outils traditionnels. La forêt sacrée de Boukitingho, gérée par les initiés, est un espace de biodiversité protégée par la tradition. Chaque année en janvier, le festival du roi (Houmabeul) rassemble des milliers de participants pour danses, luttes, cérémonies. Base idéale pour explorer la Basse Casamance : rizières en escalier, palmeraies, villages alentour.",
+        "latitude": 12.4833,
+        "longitude": -16.55,
+        "tags": [
+          "culture",
+          "diola",
+          "roi",
+          "museum",
+          "foret-sacree",
+          "festival"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Kafountine et Abéné",
+        "slug": "kafountine-abene",
+        "type": "ville",
+        "resume": "Deux villages voisins au bord de l'océan, réputés pour leur port de pêche animé, leurs plages sauvages, la musique (festival Kafountine) et l'accueil chaleureux. Ambiance authentique garantie.",
+        "description": "Kafountine et Abéné forment un duo complémentaire. Kafountine, plus grand, a un port de pêche très actif : retour des pirogues colorées le matin, fumoirs de poisson, marché aux poissons. Abéné, plus petit, est réputé pour sa plage magnifique et son ambiance \"roots\". Le festival de Kafountine (décembre) attire musiciens d'Afrique de l'Ouest. Hébergements : campements en bord de mer, chambres chez l'habitant. Excursions : bolongs de la Casamance, île aux oiseaux, forêt de Kafountine, randonnée à vélo. Vie nocturne animée avec bars musicaux.",
+        "latitude": 12.5833,
+        "longitude": -16.7333,
+        "tags": [
+          "peche",
+          "plage",
+          "musique",
+          "festival",
+          "ambiance",
+          "bolongs"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Basse Casamance (Ziguinchor et environs)",
+        "slug": "basse-casamance",
+        "type": "ville",
+        "resume": "Ziguinchor, capitale régionale, porte d'entrée de la Casamance. Marchés colorés, architecture coloniale, port fluvial, musée régional. Point de départ pour explorer le fleuve et ses bolongs.",
+        "description": "Ziguinchor (200 000 hab.) est la capitale économique et administrative. Le marché Saint-Maur (couvert) et le marché de Normandie (plein air) débordent de fruits, tissus, épices, artisanat. L'architecture coloniale (prefecture, cathédrale, maisons à galeried) se mêle aux cases traditionnelles. Le port sur le fleuve Casamance voit passer pirogues et pinasses. Le musée régional expose arts et traditions Diola, Mandingue, Peul. Depuis Ziguinchor : excursions en pirogue sur le fleuve (bolongs de Bignona, Tendouck, mangroves), visite des rizières de Niaguis, découverte des villages de l'arrière-pays. Hébergements : hôtels, auberges, campements.",
+        "latitude": 12.5833,
+        "longitude": -16.2667,
+        "tags": [
+          "capitale",
+          "marche",
+          "fleuve",
+          "musee",
+          "colonial",
+          "port"
+        ],
+        "miseEnAvant": false
+      }
+    ],
+    "en": [
+      {
+        "nom": "Carabane Island",
+        "slug": "carabane-island",
+        "type": "ile",
+        "resume": "Former colonial capital, Carabane is a peaceful car-free island accessible only by pirogue. Its sandy lanes, century-old church and mangroves make it a haven of peace.",
+        "description": "Carabane, the former capital of Casamance, is an island frozen in time. Accessible only by pirogue from Elinkine (30 min), it has no cars or paved roads. You travel on foot or by bike on sandy paths lined with century-old kapok trees. St. Anthony's Church (1885) bears witness to the colonial past. The surrounding mangroves shelter exceptional wildlife: pelicans, herons, fiddler crabs. Evenings bring spectacular sunsets over the river. Accommodation in family homes and small eco-campements.",
+        "latitude": 12.5583,
+        "longitude": -16.7333,
+        "tags": [
+          "heritage",
+          "mangrove",
+          "pirogue",
+          "peaceful",
+          "history"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Cap Skirring",
+        "slug": "cap-skirring",
+        "type": "plage",
+        "resume": "The best-known seaside resort in Casamance, with its long fine-sand beach lined with filaos, hotels and international airport. Ideal for swimming and water sports.",
+        "description": "Cap Skirring is the tourist gateway to Casamance. Its 20 km blond-sand beach, lined with filaos, is one of the most beautiful in West Africa. The international airport allows direct access from Europe (seasonal charter flights). The resort offers hotels, restaurants, bike/quad hire, big-game fishing, surfing. The craft market sells sculptures, fabrics, jewellery. Nearby: Kabrousse beach, Boucotte village, Diembering forest. Lively atmosphere in dry season, quieter in rainy season.",
+        "latitude": 12.3956,
+        "longitude": -16.7508,
+        "tags": [
+          "beach",
+          "swimming",
+          "hotels",
+          "airport",
+          "crafts"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Oussouye",
+        "slug": "oussouye",
+        "type": "ville",
+        "resume": "Heart of Diola culture, Oussouye is famous for its traditional king, impluvium houses, museum and annual king festival. Starting point for rice paddies and sacred forest.",
+        "description": "Oussouye is the cultural centre of the Diola people. The king (paramount traditional chief) resides in the royal palace. Impluvium houses (central open courtyard draining rainwater) are typical of local architecture. The Oussouye museum displays masks, instruments, traditional tools. The sacred forest of Boukitingho, managed by initiates, is a biodiversity area protected by tradition. Each January, the king's festival (Houmabeul) gathers thousands for dances, wrestling, ceremonies. Ideal base to explore Lower Casamance: terraced rice paddies, palm groves, surrounding villages.",
+        "latitude": 12.4833,
+        "longitude": -16.55,
+        "tags": [
+          "culture",
+          "diola",
+          "king",
+          "museum",
+          "sacred-forest",
+          "festival"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Kafountine and Abéné",
+        "slug": "kafountine-abene",
+        "type": "ville",
+        "resume": "Two neighbouring villages on the ocean, known for their lively fishing port, wild beaches, music (Kafountine festival) and warm welcome. Authentic atmosphere guaranteed.",
+        "description": "Kafountine and Abéné form a complementary duo. Kafountine, larger, has a very active fishing port: colourful pirogues returning at dawn, fish smokers, fish market. Abéné, smaller, is renowned for its beautiful beach and \"roots\" vibe. The Kafountine festival (December) attracts musicians from West Africa. Accommodation: beachfront campements, family rooms. Excursions: Casamance bolongs, bird island, Kafountine forest, bike rides. Lively nightlife with music bars.",
+        "latitude": 12.5833,
+        "longitude": -16.7333,
+        "tags": [
+          "fishing",
+          "beach",
+          "music",
+          "festival",
+          "atmosphere",
+          "bolongs"
+        ],
+        "miseEnAvant": true
+      },
+      {
+        "nom": "Lower Casamance (Ziguinchor and surroundings)",
+        "slug": "lower-casamance",
+        "type": "ville",
+        "resume": "Ziguinchor, regional capital, gateway to Casamance. Colourful markets, colonial architecture, river port, regional museum. Starting point to explore the river and its bolongs.",
+        "description": "Ziguinchor (200,000 pop.) is the economic and administrative capital. Saint-Maur market (covered) and Normandie market (open-air) overflow with fruit, fabrics, spices, crafts. Colonial architecture (prefecture, cathedral, gallery houses) blends with traditional houses. The port on the Casamance river sees pirogues and pinasses. The regional museum exhibits Diola, Mandinka, Fula arts and traditions. From Ziguinchor: pirogue excursions on the river (Bignona, Tendouck bolongs, mangroves), visit Niaguis rice paddies, discover hinterland villages. Accommodation: hotels, guesthouses, campements.",
+        "latitude": 12.5833,
+        "longitude": -16.2667,
+        "tags": [
+          "capital",
+          "market",
+          "river",
+          "museum",
+          "colonial",
+          "port"
+        ],
+        "miseEnAvant": false
+      }
+    ]
+  },
+  "activites": {
+    "fr": [
+      {
+        "titre": "Pirogue dans les bolongs",
+        "slug": "pirogue-bolongs",
+        "resume": "Glissez au fil de l'eau entre les palétuviers, observez les oiseaux, découvrez les villages isolés accessibles seulement par l'eau. Une immersion totale dans la mangrove.",
+        "description": "Embarquez sur une pirogue traditionnelle à balancier pour explorer les bolongs (bras de mer) de la Casamance. Au départ de Ziguinchor, Oussouye ou Kafountine, votre guide-pêcheur vous mène dans un dédale de canaux bordés de palétuviers. Silence total, seulement le clapotis de l'eau et le chant des oiseaux : hérons, aigrettes, pélicans, martins-pêcheurs. Vous croisez des villages sur pilotis, des femmes ramassant des huîtres sur les racines, des crabes violonistes agitant leur pince géante. Durée : 2h à la journée complète selon le circuit. Possibilité de déjeuner chez l'habitant sur une île.",
+        "theme": "Nature",
+        "duree": "2h à 1 journée"
+      },
+      {
+        "titre": "Observation des oiseaux",
+        "slug": "observation-oiseaux",
+        "resume": "La Casamance est un paradis ornithologique : plus de 300 espèces dont le pélican gris, l'ibis sacré, le martin-pêcheur pie, le touraco vert. Sorties guidées à l'aube.",
+        "description": "Avec plus de 300 espèces recensées, la Casamance est une destination de rêve pour les ornithologues. Les zones humides (bolongs, rizières, mangroves) attirent une avifaune exceptionnelle. Espèces emblématiques : pélican gris, ibis sacré, tantale ibis, cormoran africain, héron goliath, aigrette garzette, martin-pêcheur pie, touraco vert, rollier d'Abyssin, guêpier à front blanc. Les meilleures périodes : novembre à avril (migrateurs paléarctiques présents) et juin-août (reproduction). Sorties guidées à l'aube (6h-9h) et en fin d'après-midi (17h-19h) avec guides locaux experts. Matériel : jumelles fournies, guide d'identification. Sites : parc national du Delta du Saloum (partie sud), bolongs de Bignona, rizières de Niaguis, forêt de Diembering.",
+        "theme": "Nature",
+        "duree": "3h (matin) ou 2h (soir)"
+      },
+      {
+        "titre": "Villages et poterie Diola",
+        "slug": "villages-poterie-diola",
+        "resume": "Rencontrez les potières d'Eloubaline ou d'Édikar, façonnent l'argile selon des techniques millénaires. Visite de cases à impluvium, découverte de l'organisation sociale Diola.",
+        "description": "Les Diolas sont réputés pour leur poterie traditionnelle, façonnée exclusivement par les femmes sans tour, par modelage direct. À Eloubaline (île au cœur des bolongs) ou à Édikar (près d'Oussouye), vous assistez à tout le processus : extraction de l'argile, préparation, modelage, séchage, cuisson au feu de bois. Chaque pièce a une fonction : canari (conservation eau), marmite (cuisson), plat (service), jarre (stockage mil). Les motifs géométriques gravés racontent l'histoire du clan. Visite guidée des cases à impluvium (architecture unique : pièce centrale à ciel ouvert drainant l'eau), explication de l'organisation sociale (âge-clans, initiations, roi), rencontre avec des aînés. Achat direct possible (prix équitables).",
+        "theme": "Culture",
+        "duree": "demi-journée"
+      },
+      {
+        "titre": "Marchés et gastronomie",
+        "slug": "marches-gastronomie",
+        "resume": "Plongez dans l'effervescence des marchés de Ziguinchor, Oussouye ou Kafountine. Dégustez le thieboudienne, le yassa, les fruits de mer grillés, le jus de bouye, le bissap.",
+        "description": "La cuisine casamançaise est un métissage savoureux : riz (base), poisson (fleuve/mer), légumes (niébé, gombo, aubergine africaine), épices (piment, ail, oignon, netetou - graines de néré fermentées). Plats emblématiques : thieboudienne (riz au poisson, légumes, sauce rouge), yassa (poulet/poisson mariné citron-oignon), mafé (sauce arachide), soupe kandja (gombo). Spécialités locales : huîtres de palétuvier crues au citron, crabes farcis, poissons braisés (capitaine, bar, dorade). Boissons : bissap (hibiscus), bouye (baobab), gingembre, vin de palme (bander). Marchés : Saint-Maur (Ziguinchor, couvert, tous les jours), Normandie (Ziguinchor, plein air, mar/sam), Oussouye (ven), Kafountine (mar/sam). Atelier cuisine possible chez l'habitant.",
+        "theme": "Gastronomie",
+        "duree": "3h (marché + dégustation) ou atelier 4h"
+      }
+    ],
+    "en": [
+      {
+        "titre": "Pirogue in the bolongs",
+        "slug": "pirogue-bolongs",
+        "resume": "Glide along the water between mangroves, observe birds, discover isolated villages accessible only by water. Total immersion in the mangrove.",
+        "description": "Board a traditional outrigger pirogue to explore the bolongs (sea arms) of Casamance. From Ziguinchor, Oussouye or Kafountine, your fisherman-guide takes you through a maze of channels lined with mangroves. Total silence, only the lapping of water and birdsong: herons, egrets, pelicans, kingfishers. You pass villages on stilts, women gathering oysters on roots, fiddler crabs waving their giant claws. Duration: 2h to full day depending on circuit. Possibility of lunch with a local family on an island.",
+        "theme": "Nature",
+        "duree": "2h to 1 day"
+      },
+      {
+        "titre": "Bird watching",
+        "slug": "observation-oiseaux",
+        "resume": "Casamance is an ornithological paradise: 300+ species including grey pelican, sacred ibis, pied kingfisher, green turaco. Guided outings at dawn.",
+        "description": "With 300+ recorded species, Casamance is a dream destination for birdwatchers. Wetlands (bolongs, rice paddies, mangroves) attract exceptional birdlife. Flagship species: grey pelican, sacred ibis, yellow-billed stork, African cormorant, goliath heron, little egret, pied kingfisher, green turaco, Abyssinian roller, white-fronted bee-eater. Best periods: Nov-Apr (Palearctic migrants present) and Jun-Aug (breeding). Guided outings at dawn (6am-9am) and late afternoon (5pm-7pm) with expert local guides. Equipment: binoculars provided, ID guide. Sites: Saloum Delta National Park (southern part), Bignona bolongs, Niaguis rice paddies, Diembering forest.",
+        "theme": "Nature",
+        "duree": "3h (morning) or 2h (evening)"
+      },
+      {
+        "titre": "Diola villages and pottery",
+        "slug": "villages-poterie-diola",
+        "resume": "Meet the potters of Eloubaline or Edikar, shaping clay using millennia-old techniques. Visit impluvium houses, discover Diola social organisation.",
+        "description": "The Diola are renowned for traditional pottery, shaped exclusively by women without a wheel, by direct modeling. In Eloubaline (island in the heart of bolongs) or Edikar (near Oussouye), you witness the entire process: clay extraction, preparation, modeling, drying, wood-firing. Each piece has a function: canari (water storage), marmite (cooking), plate (serving), jar (millet storage). Geometric engraved motifs tell clan history. Guided visit of impluvium houses (unique architecture: central open-air room draining rainwater), explanation of social organisation (age-clans, initiations, king), meeting with elders. Direct purchase possible (fair prices).",
+        "theme": "Culture",
+        "duree": "half-day"
+      },
+      {
+        "titre": "Markets and gastronomy",
+        "slug": "marches-gastronomie",
+        "resume": "Immerse yourself in the bustle of Ziguinchor, Oussouye or Kafountine markets. Taste thieboudienne, yassa, grilled seafood, bouye juice, bissap.",
+        "description": "Casamance cuisine is a delicious melting pot: rice (staple), fish (river/sea), vegetables (cowpea, okra, African eggplant), spices (chilli, garlic, onion, netetou - fermented néré seeds). Signature dishes: thieboudienne (rice with fish, vegetables, red sauce), yassa (chicken/fish marinated lemon-onion), mafé (peanut sauce), kandja soup (okra). Local specialities: mangrove oysters raw with lemon, stuffed crabs, grilled fish (captain, barramundi, sea bream). Drinks: bissap (hibiscus), bouye (baobab), ginger, palm wine (bander). Markets: Saint-Maur (Ziguinchor, covered, daily), Normandie (Ziguinchor, open-air, Tue/Sat), Oussouye (Fri), Kafountine (Tue/Sat). Cooking workshop possible with local family.",
+        "theme": "Gastronomie",
+        "duree": "3h (market + tasting) or 4h workshop"
+      }
+    ]
+  },
+  "itineraires": {
+    "fr": [
+      {
+        "titre": "Le grand classique",
+        "slug": "le-grand-classique",
+        "nombreJours": 3,
+        "resume": "L'essentiel de la Casamance en 3 jours : Ziguinchor, Oussouye, Cap Skirring. Idéal pour une première découverte.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - Porte de la Casamance",
+            "texte": "Arrivée à Ziguinchor. Visite du marché Saint-Maur (artisanat, épices, tissus), de la cathédrale et de la préfecture (architecture coloniale). Déjeuner au bord du fleuve. Après-midi : balade en pirogue sur le fleuve Casamance, découverte des bolongs et de la mangrove. Coucher de soleil au port. Nuit à Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Oussouye - Cœur Diola",
+            "texte": "Route vers Oussouye (45 min). Visite du musée, du palais royal, des cases à impluvium. Rencontre avec un artisan potier. Déjeuner chez l'habitant (thieboudienne). Après-midi : forêt sacrée de Boukitingho avec guide initié. Nuit en campement à Oussouye ou Cap Skirring.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Cap Skirring - Plage et détente",
+            "texte": "Matinée libre : plage, baignade, balade à vélo dans la filaos. Déjeuner poisson grillé les pieds dans le sable. Après-midi : marché artisanal de Cap Skirring, dernier bain. Transfert aéroport ou route retour.",
+            "destination": null
+          }
+        ]
+      },
+      {
+        "titre": "Nature et culture",
+        "slug": "nature-et-culture",
+        "nombreJours": 5,
+        "resume": "5 jours entre mangroves, rizières, villages Diola et plages sauvages. Équilibre parfait nature/culture.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - Immersion urbaine",
+            "texte": "Arrivée, installation. Visite guidée du marché Normandie, quartier Escale, musée régional. Déjeuner gastronomique (yassa poulet). Après-midi : pirogue sur le fleuve vers Tendouck, observation oiseaux. Nuit à Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Niaguis - Rizières en escalier",
+            "texte": "Route vers Niaguis (1h). Randonnée dans les rizières en terrasses, rencontre avec les cultivateurs. Déjeuner mil/maïs local. Après-midi : visite village, cases à impluvium, explications système agraire Diola. Nuit en campement villageois.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Oussouye - Culture royale",
+            "texte": "Route vers Oussouye. Musée, palais royal, atelier poterie à Édikar. Déjeuner chez l'habitant. Après-midi : forêt sacrée Boukitingho, cérémonie de bienvenue (si autorisée). Nuit à Oussouye.",
+            "destination": null
+          },
+          {
+            "jour": 4,
+            "titre": "Kafountine/Abéné - Pêche et musique",
+            "texte": "Route côtière vers Kafountine (1h30). Matin : port de pêche au lever du jour, fumoirs. Déjeuner fruits de mer. Après-midi : détente plage Abéné, balade bolongs en pirogue. Soirée concert musique live. Nuit en campement bord de mer.",
+            "destination": null
+          },
+          {
+            "jour": 5,
+            "titre": "Île aux oiseaux - Retour",
+            "texte": "Matin : pirogue vers l'île aux oiseaux (réserve ornithologique), observation pélicans, sternes, cormorans. Déjeuner pique-nique. Retour vers Ziguinchor/Cap Skirring pour départ.",
+            "destination": null
+          }
+        ]
+      },
+      {
+        "titre": "La Casamance complète",
+        "slug": "la-casamance-complete",
+        "nombreJours": 7,
+        "resume": "7 jours pour tout voir : du fleuve à l'océan, des îles aux forêts, des villes aux villages. Le grand tour.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - Capitale fluviale",
+            "texte": "Arrivée, marché Saint-Maur, cathédrale, préfecture, musée régional. Pirogue coucher de soleil sur le fleuve. Nuit Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Carabane - Île hors du temps",
+            "texte": "Transfert Elinkine, pirogue 30 min vers Carabane. Installation campement. Visite église 1885, ruelles sablonneuses, fromagers. Déjeuner homard/poisson. Après-midi : pirogue bolongs, observation oiseaux, plage déserte. Nuit Carabane.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Oussouye - Terre Diola",
+            "texte": "Pirogue retour, route Oussouye. Musée, palais, cases impluvium, poterie Édikar. Forêt sacrée. Nuit Oussouye.",
+            "destination": null
+          },
+          {
+            "jour": 4,
+            "titre": "Niaguis - Rizières et traditions",
+            "texte": "Randonnée rizières terrasses, système irrigation traditionnel, déjeuner mil. Initiation danse Diola (optionnel). Nuit campement villageois.",
+            "destination": null
+          },
+          {
+            "jour": 5,
+            "titre": "Kafountine/Abéné - Océan et pêche",
+            "texte": "Route côtière. Port pêche Kafountine à l'aube, fumoirs. Plage Abéné, baignade. Festival musique si période. Nuit campement plage.",
+            "destination": null
+          },
+          {
+            "jour": 6,
+            "titre": "Cap Skirring - Grande plage",
+            "texte": "Route Cap Skirring (30 min). Journée libre : plage 20km, vélo filaos, surf, quad, pêche. Marché artisanal. Nuit hôtel/lodge.",
+            "destination": null
+          },
+          {
+            "jour": 7,
+            "titre": "Diembering - Forêt et départ",
+            "texte": "Matin : forêt de Diembering, balade guidée, baignade crique. Déjeuner. Transfert aéroport Cap Skirring ou route Ziguinchor.",
+            "destination": null
+          }
+        ]
+      }
+    ],
+    "en": [
+      {
+        "titre": "The Great Classic",
+        "slug": "the-great-classic",
+        "nombreJours": 3,
+        "resume": "The essentials of Casamance in 3 days: Ziguinchor, Oussouye, Cap Skirring. Ideal for a first discovery.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - Gateway to Casamance",
+            "texte": "Arrival in Ziguinchor. Visit Saint-Maur market (crafts, spices, fabrics), cathedral and prefecture (colonial architecture). Lunch by the river. Afternoon: pirogue ride on the Casamance river, discover bolongs and mangrove. Sunset at the port. Night in Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Oussouye - Diola Heartland",
+            "texte": "Drive to Oussouye (45 min). Visit museum, royal palace, impluvium houses. Meet a potter artisan. Lunch with local family (thieboudienne). Afternoon: sacred forest of Boukitingho with initiated guide. Night in campement at Oussouye or Cap Skirring.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Cap Skirring - Beach and relaxation",
+            "texte": "Free morning: beach, swimming, bike ride in the filaos. Lunch grilled fish on the beach. Afternoon: Cap Skirring craft market, last swim. Transfer to airport or return drive.",
+            "destination": null
+          }
+        ]
+      },
+      {
+        "titre": "Nature and Culture",
+        "slug": "nature-and-culture",
+        "nombreJours": 5,
+        "resume": "5 days between mangroves, rice paddies, Diola villages and wild beaches. Perfect nature/culture balance.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - Urban immersion",
+            "texte": "Arrival, check-in. Guided visit of Normandie market, Escale district, regional museum. Gastronomic lunch (yassa chicken). Afternoon: pirogue on river to Tendouck, bird watching. Night in Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Niaguis - Terraced rice paddies",
+            "texte": "Drive to Niaguis (1h). Hike in terraced rice paddies, meet farmers. Lunch local millet/maize. Afternoon: village visit, impluvium houses, Diola agricultural system explanation. Night in village campement.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Oussouye - Royal culture",
+            "texte": "Drive to Oussouye. Museum, royal palace, pottery workshop at Edikar. Lunch with local family. Afternoon: sacred forest Boukitingho, welcome ceremony (if permitted). Night in Oussouye.",
+            "destination": null
+          },
+          {
+            "jour": 4,
+            "titre": "Kafountine/Abéné - Fishing and music",
+            "texte": "Coastal drive to Kafountine (1h30). Morning: fishing port at dawn, smokers. Lunch seafood. Afternoon: Abéné beach relaxation, pirogue in bolongs. Evening live music concert. Night in beachfront campement.",
+            "destination": null
+          },
+          {
+            "jour": 5,
+            "titre": "Bird Island - Return",
+            "texte": "Morning: pirogue to bird island (ornithological reserve), observe pelicans, terns, cormorants. Picnic lunch. Return to Ziguinchor/Cap Skirring for departure.",
+            "destination": null
+          }
+        ]
+      },
+      {
+        "titre": "Complete Casamance",
+        "slug": "complete-casamance",
+        "nombreJours": 7,
+        "resume": "7 days to see it all: from river to ocean, islands to forests, towns to villages. The grand tour.",
+        "etapes": [
+          {
+            "jour": 1,
+            "titre": "Ziguinchor - River capital",
+            "texte": "Arrival, Saint-Maur market, cathedral, prefecture, regional museum. Sunset pirogue on river. Night Ziguinchor.",
+            "destination": null
+          },
+          {
+            "jour": 2,
+            "titre": "Carabane - Timeless island",
+            "texte": "Transfer Elinkine, 30 min pirogue to Carabane. Campement check-in. Visit 1885 church, sandy lanes, kapok trees. Lunch lobster/fish. Afternoon: pirogue in bolongs, bird watching, deserted beach. Night Carabane.",
+            "destination": null
+          },
+          {
+            "jour": 3,
+            "titre": "Oussouye - Diola land",
+            "texte": "Pirogue return, drive Oussouye. Museum, palace, impluvium houses, Edikar pottery. Sacred forest. Night Oussouye.",
+            "destination": null
+          },
+          {
+            "jour": 4,
+            "titre": "Niaguis - Rice paddies and traditions",
+            "texte": "Hike terraced rice paddies, traditional irrigation system, millet lunch. Diola dance initiation (optional). Night village campement.",
+            "destination": null
+          },
+          {
+            "jour": 5,
+            "titre": "Kafountine/Abéné - Ocean and fishing",
+            "texte": "Coastal drive. Kafountine fishing port at dawn, smokers. Abéné beach, swimming. Music festival if in season. Night beach campement.",
+            "destination": null
+          },
+          {
+            "jour": 6,
+            "titre": "Cap Skirring - Great beach",
+            "texte": "Drive Cap Skirring (30 min). Free day: 20km beach, filaos bike, surf, quad, fishing. Craft market. Night hotel/lodge.",
+            "destination": null
+          },
+          {
+            "jour": 7,
+            "titre": "Diembering - Forest and departure",
+            "texte": "Morning: Diembering forest, guided walk, creek swimming. Lunch. Transfer to Cap Skirring airport or drive to Ziguinchor.",
+            "destination": null
+          }
+        ]
+      }
+    ]
+  },
+  "hebergements": {
+    "fr": [
+      {
+        "nom": "Campement Kadiandoumagne",
+        "slug": "campement-kadiandoumagne",
+        "type": "campement",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Écolodge Le Palétuvier",
+        "slug": "ecolodge-le-paletuvier",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hôtel de la Plage Cap Skirring",
+        "slug": "hotel-de-la-plage-cap-skirring",
+        "type": "hotel",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Campement Carabane Nature",
+        "slug": "campement-carabane-nature",
+        "type": "campement",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Écolodge Oussouye Village",
+        "slug": "ecolodge-oussouye-village",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Kafountine Beach Lodge",
+        "slug": "kafountine-beach-lodge",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      }
+    ],
+    "en": [
+      {
+        "nom": "Kadiandoumagne Campement",
+        "slug": "kadiandoumagne-campement",
+        "type": "campement",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Le Palétuvier Ecolodge",
+        "slug": "le-paletuvier-ecolodge",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hotel de la Plage Cap Skirring",
+        "slug": "hotel-de-la-plage-cap-skirring",
+        "type": "hotel",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Carabane Nature Campement",
+        "slug": "carabane-nature-campement",
+        "type": "campement",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Oussouye Village Ecolodge",
+        "slug": "oussouye-village-ecolodge",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Kafountine Beach Lodge",
+        "slug": "kafountine-beach-lodge",
+        "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      }
+    ]
+  }
+}

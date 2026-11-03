@@ -1,282 +1,55 @@
 # Tourisme Casamance
 
-Site vitrine de tourisme pour la Casamance (Sénégal) — Next.js 14 + Strapi v5 + PostgreSQL.
+Site vitrine bilingue (français / anglais) consacré à la Casamance. Le site est généré en fichiers statiques à partir de contenus locaux : aucun CMS, serveur applicatif ou base de données n’est nécessaire.
 
-## 🚀 Stack Technique
+## Stack
 
-| Composant | Technologie |
-|-----------|-------------|
-| Frontend | Next.js 14 (App Router) + TypeScript + Tailwind CSS |
-| CMS | Strapi v5 (TypeScript) |
-| Base de données | PostgreSQL 16 |
-| i18n | next-intl (FR/EN) |
-| Cartes | Leaflet + OpenStreetMap |
-| Conteneurisation | Docker Compose |
-| CI/CD | GitHub Actions |
-| Hébergement cible | Vercel (frontend) + VPS (Strapi) |
+- Next.js 14, React et TypeScript
+- Tailwind CSS
+- next-intl pour les textes français et anglais
+- Leaflet et OpenStreetMap pour les cartes
+- Export HTML/CSS/JS dans `frontend/out`
 
-## 📁 Structure du Projet
+## Développement
 
-```
-tourisme-casamance/
-├── frontend/                 # Next.js App
-│   ├── src/
-│   │   ├── app/[locale]/    # Pages par langue
-│   │   ├── components/      # Composants UI réutilisables
-│   │   ├── lib/             # Utilitaires, config i18n
-│   │   └── styles/          # CSS global + tokens Tailwind
-│   └── public/              # Assets statiques
-├── strapi/                   # Strapi v5 CMS
-│   ├── src/
-│   │   ├── api/             # Content-types (Destination, Activité...)
-│   │   ├── components/      # Composants répétables (Étape itinéraire...)
-│   │   └── config/          # Config DB, server, plugins
-├── docker-compose.yml        # Orchestration locale
-├── .env.example              # Variables d'environnement
-└── README.md
-```
-
-## 🛠️ Installation Locale
-
-### Prérequis
-- Node.js ≥ 20
-- Docker & Docker Compose
-- npm ≥ 10
-
-### Démarrage Rapide
+Prérequis : Node.js 20 ou supérieur et npm 10 ou supérieur.
 
 ```bash
-# 1. Cloner le dépôt
-git clone <repo-url>
-cd tourisme-casamance
-
-# 2. Configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env avec vos secrets (générer les clés avec: openssl rand -base64 32)
-
-# 3. Lancer l'environnement complet
+npm install --prefix frontend
 npm run dev
-# ou: docker compose up --build
 ```
 
-### Services Disponibles
+Le serveur de développement affiche son URL dans le terminal (souvent <http://localhost:3001> lorsque le port 3000 est pris). Il compile chaque page à la première visite ; ces compilations à froid sont normales en développement. Arrête un serveur déjà lancé avec `Ctrl+C` avant d’en ouvrir un autre.
 
-| Service | URL | Description |
-|---------|-----|-------------|
-| Frontend | http://localhost:3000 | Site public (FR/EN) |
-| Strapi Admin | http://localhost:1337/admin | Interface d'administration |
-| Strapi API | http://localhost:1337/api | API REST |
-| PostgreSQL | localhost:5432 | Base de données |
+Pour naviguer dans la version optimisée, lance `npm start`. Cette commande génère l’export statique puis sert les fichiers sur <http://127.0.0.1:3000>. Les clics entre pages utilisent alors les pages déjà générées, sans compilation à la demande.
 
-### Commandes Utiles
+## Générer le site statique
 
 ```bash
-# Développement
-npm run dev              # Lance tout (frontend + strapi + DB)
-npm run dev:frontend     # Frontend seulement
-npm run dev:strapi       # Strapi seulement
-
-# Base de données
-npm run db:up            # Démarre PostgreSQL seulement
-npm run db:down          # Arrête PostgreSQL
-npm run db:logs          # Logs PostgreSQL
-
-# Build & Qualité
-npm run build            # Build tout
-npm run lint             # ESLint tout
-npm run lint:fix         # Auto-fix ESLint
-npm run format           # Prettier
-npm run format:check     # Vérifier Prettier
-npm run test             # Tests
-
-# Strapi
-npm run strapi:seed      # Seed données d'exemple
-
-# Nettoyage
-npm run clean            # Supprime containers, volumes, node_modules
+npm run build
 ```
 
-## 🎨 Direction Artistique
+Le résultat prêt à héberger se trouve dans `frontend/out`. Publiez le contenu de ce dossier sur un hébergeur de fichiers statiques comme Vercel, Netlify, GitHub Pages ou un serveur web. Aucun service Node.js ne doit rester en ligne après la génération.
 
-### Palette de Couleurs
-- **Forest** `#0E2A20` — Fond sombre, texte principal
-- **Leaf** `#14503A` — Vert forêt moyen
-- **Emerald** `#1E7F55` — Couleur principale, boutons, accents
-- **Lime** `#B6D94A` — Accent clair sur fond sombre
-- **Mint** `#CFE6B5` / `#E4F2CF` — Halos, fonds doux
-- **Cream** `#F2F6EA` — Fond de page
-- **Coral** `#FF6B3D` — Touche soleil (rare)
-- **Sun** `#FFB627` — Saison sèche
-- **Muted** `#4F6358` — Texte secondaire
+Pour générer les métadonnées et le sitemap avec le domaine public, créez `frontend/.env.local` depuis `frontend/.env.example` et définissez `NEXT_PUBLIC_SITE_URL`.
 
-### Typographies
-- **Titres** : Bricolage Grotesque 600/800 (letter-spacing: -0.02em)
-- **Corps** : Manrope 400/500/600/700
+## Contenus
 
-### Formes Signature
-- **Arche** : `rounded-arch` (bords supérieurs arrondis)
-- **Feuille** : `rounded-leaf` (rayon `0 44px 0 44px`)
-- **Carte** : `rounded-card-lg` (32px)
-- **Bouton** : Pilule `rounded-pill` (min 48px haut)
+Les contenus des destinations, activités, itinéraires et hébergements sont dans [`frontend/src/data/content.json`](frontend/src/data/content.json). Vérifiez les descriptions, coordonnées et informations pratiques avant publication. Les photos d’illustration actuelles sont des images de démonstration servies par Unsplash ; remplacez-les par des photos locales autorisées avant la mise en ligne.
 
-## 📝 Modèle de Contenu Strapi
+Les traductions de l’interface sont dans `frontend/messages/fr.json` et `frontend/messages/en.json`. Les styles, composants et pages se trouvent dans `frontend/src`.
 
-### Collection Types
-- **Destination** : nom, slug, type, résumé, description, galerie, lat/lng, tags, miseEnAvant
-- **Activité** : titre, slug, résumé, description, thème, durée, destinations liées, galerie
-- **Itinéraire** : titre, slug, nombreJours, résumé, étapes (composant répétable)
-- **Hébergement** : nom, slug, type, destination, prix, WhatsApp, galerie
-- **Témoignage** : texte, prénom, pays, publié
-
-### Single Types
-- **Page d'accueil** : Hero, chiffres clés, bandeau canopée, section verte, témoignage, CTA
-- **Paramètres du site** : nom, téléphone, email, WhatsApp, réseaux sociaux
-
-### Rôles
-- **Éditeur** : Accès aux contenus uniquement (pas de paramètres techniques)
-
-## 🌍 Internationalisation
-
-- **Langue par défaut** : Français (`fr`)
-- **Langue secondaire** : Anglais (`en`)
-- **Structure** : `/fr/...` et `/en/...` (prefixe obligatoire)
-- **Fichiers de traduction** : `frontend/messages/fr.json` et `en.json`
-
-## 🖼️ Gestion des Images
-
-- Formats : WebP/AVIF (générés automatiquement par `next/image`)
-- Placeholder : Blur data URL généré au build
-- Tailles responsive : `deviceSizes` + `imageSizes` configurés
-- Strapi : Provider local (dev) / Cloudinary (prod)
-
-## 🗺️ Cartes
-
-- **Bibliothèque** : Leaflet + React-Leaflet
-- **Tuiles** : OpenStreetMap (gratuit, pas de clé API)
-- **Marqueurs** : Destinations, hébergements, tracé itinéraires
-
-## 🔒 Sécurité
-
-- Validation côté serveur (Zod)
-- Protection anti-spam : Honeypot + Rate limiting
-- En-têtes de sécurité (CSP, HSTS, etc.)
-- Secrets hors dépôt (`.env` gitignored)
-- Rôle "Éditeur" sans accès technique
-
-## ♿ Accessibilité
-
-- Navigation clavier complète
-- Focus visible (`focus-visible:ring-2`)
-- Textes alternatifs sur toutes les images
-- Labels formulaires explicites
-- Respect `prefers-reduced-motion`
-- Contraste AA minimum
-
-## 📊 Performance Cible
-
-- **Lighthouse Mobile** ≥ 90 (Performance, Accessibilité, Bonnes pratiques, SEO)
-- Rendu statique (ISR) quand possible
-- Polices préchargées (`next/font`)
-- Images optimisées (`next/image`)
-
-## 🚀 Déploiement
-
-### Frontend → Vercel
-```bash
-# Connecter le repo à Vercel
-# Variables d'environnement à définir :
-# NEXT_PUBLIC_STRAPI_URL=https://votre-strapi.com
-# NEXT_PUBLIC_SITE_URL=https://votre-domaine.com
-# STRAPI_API_TOKEN=xxx
-```
-
-### Strapi → VPS (Docker)
-```bash
-# Sur le VPS :
-docker compose -f docker-compose.prod.yml up -d
-# Configurer Nginx en reverse proxy + SSL (Let's Encrypt)
-```
-
-## 📦 Scripts de Seed (Strapi)
-
-Le projet inclut un système complet de seed pour peupler Strapi avec des données d'exemple **marquées `[À REMPLACER]`** — à remplacer par du contenu réel dans l'admin.
-
-### Structure des Seeds
-
-```
-strapi/src/database/seeds/
-├── index.ts                 # Lanceur principal (tous les seeds)
-├── 01-homepage.ts           # Page d'accueil (single type) FR/EN
-├── 02-settings.ts           # Paramètres du site (single type)
-├── 03-destinations.ts       # 5 destinations FR/EN
-├── 04-activites.ts          # 4 activités FR/EN
-├── 05-itineraires.ts        # 3 itinéraires FR/EN
-├── 06-hebergements.ts       # 6 hébergements FR/EN
-├── 07-temoignages.ts        # 5 témoignages FR/EN
-└── 08-link-relations.ts     # Lie les relations entre contenus
-```
-
-### Utilisation
+## Commandes
 
 ```bash
-# Option 1: Via npm (recommandé) - lance tous les seeds dans l'ordre
-npm run strapi:seed
-
-# Option 2: Lancer un seed spécifique
-npm run strapi:seed -- --name=01-homepage
-npm run strapi:seed -- --name=03-destinations
-
-# Option 3: Directement avec Strapi CLI (si Strapi tourne)
-cd strapi && npm run seed:run
-cd strapi && npm run seed:run -- --name=01-homepage
+npm run dev           # Développement local
+npm run build         # Export statique dans frontend/out
+npm start             # Construire et servir la version optimisée
+npm run preview       # Servir le dernier export déjà généré sur le port 3000
+npm run type-check    # Vérification TypeScript
+npm run lint          # ESLint
+npm run test          # Tests Vitest
+npm run format        # Formater les fichiers frontend
 ```
 
-### Ordre d'Exécution Recommandé
-
-1. **Single types** : `01-homepage`, `02-settings` (indépendants)
-2. **Collection types** : `03-destinations`, `04-activites`, `05-itineraires`, `06-hebergements`, `07-temoignages`
-3. **Relations** : `08-link-relations` (doit être lancé **après** tous les contenus créés)
-
-### Contenu des Seeds
-
-Tous les textes sont préfixés par :
-- **Français** : `[À REMPLACER]`
-- **Anglais** : `[TO REPLACE]`
-
-**Images** : Les champs médias (galerie, hero, etc.) sont vides — à uploader manuellement dans l'admin Strapi.
-
-### Après le Seed
-
-1. Ouvrir l'admin Strapi : `http://localhost:1337/admin`
-2. Aller dans chaque type de contenu
-3. Remplacer les textes `[À REMPLACER]` par le vrai contenu
-4. Uploader les images pour chaque entrée
-5. Publier les entrées (bouton "Publier")
-
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/amazing-feature`)
-3. Commit (`git commit -m 'feat: add amazing feature'`)
-4. Push (`git push origin feature/amazing-feature`)
-5. Ouvrir une Pull Request
-
-### Conventions de Commit
-[Conventional Commits](https://www.conventionalcommits.org/) :
-- `feat:` — Nouvelle fonctionnalité
-- `fix:` — Correction de bug
-- `docs:` — Documentation
-- `style:` — Formatage (Prettier)
-- `refactor:` — Refactoring
-- `test:` — Tests
-- `chore:` — Maintenance
-
-## 📄 Licence
-
-Projet privé — Tous droits réservés.
-
-## 📞 Contact
-
-- **Email** : contact@visitecasamance.com
-- **Téléphone** : +221 33 990 00 00
-- **WhatsApp** : +221 77 000 00 00
+Les cartes Leaflet chargent leurs tuiles OpenStreetMap depuis le navigateur. Le site lui-même ne contacte aucun backend.

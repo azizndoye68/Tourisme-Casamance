@@ -1,43 +1,20 @@
-'use client';
-
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { MapPin } from 'lucide-react';
 import { type Locale } from '@/lib/i18n';
-
-const socialLinks = [
-  { name: 'instagram', icon: Instagram, href: 'https://instagram.com' },
-  { name: 'facebook', icon: Facebook, href: 'https://facebook.com' },
-  { name: 'youtube', icon: Youtube, href: 'https://youtube.com' },
-] as const;
 
 const footerLinks = [
   { key: 'destinations', href: '/destinations' },
   { key: 'activities', href: '/activites' },
   { key: 'itineraries', href: '/itineraires' },
-  { key: 'whenToGo', href: '/quand-partir' },
   { key: 'whereToStay', href: '/hebergements' },
 ] as const;
-
-const legalLinks = ['legal', 'privacy', 'contact'] as const;
 
 interface FooterProps {
   locale: Locale;
   t: {
     footer: {
       description: string;
-      social: {
-        instagram: string;
-        facebook: string;
-        youtube: string;
-      };
       practicalInfo: string;
-      legal: string;
-      links: {
-        legal: string;
-        privacy: string;
-        contact: string;
-      };
       copyright: string;
     };
     common: {
@@ -46,7 +23,6 @@ interface FooterProps {
         destinations: string;
         activities: string;
         itineraries: string;
-        whenToGo: string;
         whereToStay: string;
       };
     };
@@ -59,7 +35,7 @@ export function Footer({ locale, t }: FooterProps) {
   return (
     <footer className="bg-forest text-cream" role="contentinfo">
       <div className="container-main py-18 lg:py-24">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="lg:col-span-1 max-w-xs">
             <Link href={`/${locale}`} className="flex items-center gap-2 mb-6" aria-label={t.common.siteName}>
               <svg className="w-8 h-8 text-lime" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -69,21 +45,6 @@ export function Footer({ locale, t }: FooterProps) {
               <span className="font-display text-xl font-bold">Casamance</span>
             </Link>
             <p className="text-mint text-body-sm mb-6">{t.footer.description}</p>
-            <div className="flex gap-4" role="list" aria-label={t.footer.social.instagram}>
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-mint hover:text-lime transition-colors"
-                  aria-label={t.footer.social[social.name]}
-                  role="listitem"
-                >
-                  <social.icon className="w-5 h-5" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
           </div>
 
           <nav aria-label={t.common.menu.destinations}>
@@ -109,32 +70,9 @@ export function Footer({ locale, t }: FooterProps) {
                 <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 <span>Ziguinchor, Sénégal</span>
               </li>
-              <li className="flex items-center gap-2 text-mint">
-                <Phone className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                <a href="tel:+221339900000" className="hover:text-lime transition-colors">+221 33 990 00 00</a>
-              </li>
-              <li className="flex items-center gap-2 text-mint">
-                <Mail className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                <a href="mailto:contact@visitecasamance.com" className="hover:text-lime transition-colors">contact@visitecasamance.com</a>
-              </li>
             </ul>
           </nav>
 
-          <nav aria-label={t.footer.legal}>
-            <h3 className="font-display text-lg font-bold mb-4">{t.footer.legal}</h3>
-            <ul className="space-y-3" role="list">
-              {legalLinks.map((link) => (
-                <li key={link}>
-                  <Link
-                    href={`/${locale}/${link === 'legal' ? 'mentions-legales' : link}`}
-                    className="text-mint hover:text-lime transition-colors text-body-sm"
-                  >
-                    {t.footer.links[link]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
 
         <div className="mt-12 pt-8 border-t border-forest/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4">

@@ -140,6 +140,43 @@
       "whatsappText": "Discuter sur WhatsApp"
     }
   },
+  "destinations": {
+    "pageTitle": "Nos destinations",
+    "pageDescription": "Explorez les lieux de Casamance.",
+    "viewDetails": "Voir les détails",
+    "mapTitle": "Carte des destinations",
+    "featuredTitle": "Destinations à découvrir",
+    "otherTitle": "Autres lieux",
+    "noDestinations": "Aucune destination disponible.",
+    "relatedActivities": "Activités à proximité",
+    "whereToStay": "Où dormir à proximité"
+  },
+  "activites": {
+    "pageTitle": "Activités",
+    "pageDescription": "Découvrez les expériences à vivre en Casamance.",
+    "viewDetails": "Voir les détails",
+    "noActivities": "Aucune activité disponible.",
+    "relatedDestinations": "Lieux à découvrir"
+  },
+  "itineraires": {
+    "pageTitle": "Itinéraires",
+    "pageDescription": "Parcourez nos idées de séjour en Casamance.",
+    "viewItinerary": "Voir l’itinéraire",
+    "noItineraries": "Aucun itinéraire disponible.",
+    "dayByDay": "Étape par étape",
+    "summary": "En bref"
+  },
+  "hebergements": {
+    "pageTitle": "Hébergements",
+    "pageDescription": "Trouvez un hébergement en Casamance.",
+    "viewDetails": "Voir les détails",
+    "mapTitle": "Carte des hébergements",
+    "noAccommodations": "Aucun hébergement disponible.",
+    "galleryTitle": "Galerie",
+    "contactTitle": "Contacter l’hébergement",
+    "contactWhatsApp": "Contacter sur WhatsApp",
+    "backToList": "Tous les hébergements"
+  },
   "seo": {
     "defaultTitle": "Casamance - Joyau du Sud Sénégal | Tourisme & Culture",
     "defaultDescription": "Découvrez la Casamance : mangroves, plages, culture diola, écotourisme. Itinéraires, hébergements, activités et infos pratiques pour votre voyage au Sud du Sénégal."

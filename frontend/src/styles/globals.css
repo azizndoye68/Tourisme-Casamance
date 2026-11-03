@@ -4,8 +4,9 @@
 
 @layer base {
   :root {
-    --font-bricolage-grotesque: 'Bricolage Grotesque', sans-serif;
-    --font-manrope: 'Manrope', sans-serif;
+    --font-bricolage-grotesque: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+    --font-manrope: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+    --page: #fbfaf5;
   }
 
   * {
@@ -16,9 +17,14 @@
     @apply scroll-smooth;
   }
 
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
   body {
-    @apply bg-cream text-forest font-body antialiased;
+    @apply bg-[#fbfaf5] text-forest font-body antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
   }
 
   :focus-visible {
@@ -41,24 +47,28 @@
 
 @layer components {
   .container-main {
-    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px];
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
   }
 
   .section {
-    @apply py-18 sm:py-22 lg:py-30;
+    @apply py-16 sm:py-20 lg:py-24;
   }
 
   .section-title {
-    @apply font-display text-h2-mobile sm:text-h2-desktop text-forest;
+    @apply font-display text-3xl font-semibold leading-tight tracking-[-0.035em] text-forest sm:text-4xl lg:text-5xl;
   }
 
   .section-subtitle {
-    @apply mt-4 text-body-lg text-muted max-w-2xl;
+    @apply mx-auto mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-emerald sm:text-sm;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 font-body text-body font-semibold
-           rounded-pill h-12 px-6 transition-all duration-300 ease-spring
+    @apply inline-flex items-center justify-center gap-2 font-body text-sm font-semibold
+           rounded-full h-12 px-6 transition-all duration-200
            focus-visible:ring-2 focus-visible:ring-offset-2;
   }
 
@@ -83,12 +93,15 @@
   }
 
   .card {
-    @apply rounded-card-lg bg-white overflow-hidden shadow-card transition-all duration-400 ease-spring
-           hover:shadow-[0_16px_48px_-12px_rgb(14_42_32_/_0.2)] hover:-translate-y-1;
+    @apply overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_-18px_rgba(14,42,32,0.35)] transition-shadow duration-200 hover:shadow-[0_18px_40px_-20px_rgba(14,42,32,0.4)];
+  }
+
+  .destination-card {
+    @apply overflow-hidden rounded-2xl bg-forest shadow-[0_12px_35px_-22px_rgba(14,42,32,0.55)];
   }
 
   .card-arch-image {
-    @apply relative aspect-[4/3] overflow-hidden rounded-arch;
+    @apply relative aspect-[4/3] overflow-hidden rounded-2xl;
   }
 
   .card-arch-image img {
@@ -157,7 +170,7 @@
   }
 
   .hero-subtitle {
-    @apply mt-6 text-body-lg sm:text-[20px] text-muted max-w-xl;
+    @apply mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8;
   }
 }
 

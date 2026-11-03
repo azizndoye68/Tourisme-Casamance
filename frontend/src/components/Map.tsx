@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -198,65 +197,3 @@ export function Map({
 }
 
 // Static map image fallback for SSR/SEO
-interface StaticMapProps {
-  markers: MapMarker[];
-  center?: [number, number];
-  zoom?: number;
-  width?: number;
-  height?: number;
-  className?: string;
-  alt?: string;
-}
-
-export function StaticMap({
-  markers,
-  center = [12.5, -16.3],
-  zoom = 9,
-  width = 800,
-  height = 450,
-  className = '',
-  alt = 'Carte de la Casamance',
-}: StaticMapProps) {
-  // Build marker string for static map
-  const markerParams = markers
-    .map((m, i) => `markers=color:green%7Clabel:${String.fromCharCode(65 + i)}%7C${m.lat},${m.lng}`)
-    .join('&');
-
-  const centerParam = `center=${center[0]},${center[1]}`;
-  const zoomParam = `zoom=${zoom}`;
-  const sizeParam = `size=${width}x${height}`;
-
-  // Using a static map service (here using a placeholder approach)
-  // In production, you'd use a service like Mapbox Static Images, or generate server-side
-  const staticMapUrl = `https://staticmap.openstreetmap.de/staticmap.php?${centerParam}&${zoomParam}&${sizeParam}&${markerParams}`;
-
-  return (
-    <img
-      src={staticMapUrl}
-      alt={alt}
-      width={width}
-      height={height}
-      className={`rounded-card-lg ${className}`}
-      loading="lazy"
-      style={{ width: '100%', height: 'auto', maxWidth: width, borderRadius: '24px' }}
-    />
-  );
-}
-
-// Dynamic import for client-side only map (for pages that need SSR)
-export const ClientMap = dynamic(() => import('./Map').then(mod => ({ default: mod.Map })), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="bg-muted/10 rounded-card-lg flex items-center justify-center"
-      style={{ height: '400px' }}
-      role="status"
-      aria-label="Chargement de la carte..."
-    >
-      <div className="text-center text-muted">
-        <div className="animate-spin rounded-full h-8 w-8 border-2 border-emerald border-t-transparent mx-auto mb-2" />
-        <p>Chargement de la carte...</p>
-      </div>
-    </div>
-  ),
-});

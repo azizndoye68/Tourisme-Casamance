@@ -1,7 +1,3 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-
 interface CanopyData {
   text: string;
 }

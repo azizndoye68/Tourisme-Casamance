@@ -1,8 +1,7 @@
-'use client';
-
 import Image from 'next/image';
-import { ArrowRight, Users, Waves, TreePine } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { ArrowDown, ArrowRight, Compass, Leaf } from 'lucide-react';
+import type { Locale } from '@/lib/i18n';
 
 interface HeroData {
   badge: string;
@@ -11,94 +10,53 @@ interface HeroData {
   subtitle: string;
   ctaPrimary: string;
   ctaSecondary: string;
-  stats: {
-    area: string;
-    river: string;
-    carFree: string;
-  };
+  stats: { area: string; river: string; carFree: string };
   seasonBadge: string;
 }
 
-interface HeroProps {
-  data: HeroData;
-}
-
-export function Hero({ data }: HeroProps) {
-  const stats = [
-    { icon: TreePine, label: data.stats.area },
-    { icon: Waves, label: data.stats.river },
-    { icon: Users, label: data.stats.carFree },
-  ];
-
+export function Hero({ data, locale }: { data: HeroData; locale: Locale }) {
   return (
-    <section className="relative pt-32 pb-18 lg:pt-40 lg:pb-22" aria-labelledby="hero-title">
-      <div className="container-main">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="max-w-xl">
-            <span className="inline-block px-3 py-1 rounded-pill bg-emerald/10 text-emerald text-caption font-medium mb-6 animate-fade-in-up">
-              {data.badge}
-            </span>
-            <h1
-              id="hero-title"
-              className="h1-hero animate-fade-in-up"
-              style={{ animationDelay: '100ms' }}
-            >
-              {data.title}
-            </h1>
-            <p className="hero-subtitle animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              {data.subtitle}
-            </p>
-            <div className="flex flex-wrap gap-4 mt-10 animate-fade-in-up" style={{ animationDelay: '300ms' }} role="group" aria-label="Actions principales">
-              <a href="/itineraires" className="btn-primary group">
-                {data.ctaPrimary}
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </a>
-              <a href="/destinations" className="btn-outline">
-                {data.ctaSecondary}
-              </a>
-            </div>
-            <div className="grid grid-cols-3 gap-6 mt-16 animate-fade-in-up" style={{ animationDelay: '400ms' }} role="list" aria-label="Chiffres clés">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center" role="listitem">
-                  <div className="flex justify-center mb-2">
-                    <stat.icon className="w-6 h-6 text-emerald" aria-hidden="true" />
-                  </div>
-                  <p className="text-body-sm text-muted">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section className="hero relative isolate flex min-h-[680px] items-end overflow-hidden bg-forest pt-24 text-white sm:min-h-[760px] lg:min-h-[820px]" aria-labelledby="hero-title">
+      <Image
+        src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=72"
+        alt="L’océan Atlantique au large de la Casamance"
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-center"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071b17]/85 via-[#071b17]/48 to-[#071b17]/10" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-[#071b17]/55 to-transparent" />
 
-          <div className="relative">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-lime/30 rounded-arch blur-2xl opacity-60 animate-pulse" aria-hidden="true" />
-              <div className="card-arch-image relative">
-                <Image
-                  src="/images/hero-mangrove.jpg"
-                  alt=""
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-                />
-                <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-cream shadow-card overflow-hidden" aria-hidden="true">
-                  <Image
-                    src="/images/hero-badge.jpg"
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="160px"
-                  />
-                </div>
-              </div>
-              <div className="arch-badge" aria-label={data.seasonBadge}>
-                {data.seasonBadge}
-              </div>
-            </div>
+      <div className="container-main w-full pb-14 pt-16 sm:pb-20 lg:pb-24">
+        <div className="max-w-4xl">
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:text-sm">
+            <Leaf className="h-4 w-4 text-lime" aria-hidden="true" /> {data.badge}
+          </p>
+          <h1 id="hero-title" className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            {data.title.split(data.titleAccent)[0]}<span className="text-lime">{data.titleAccent}</span>{data.title.split(data.titleAccent).slice(1).join(data.titleAccent)}
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">{data.subtitle}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href={`/${locale}/itineraires`} className="btn-primary h-14 justify-center bg-lime px-7 text-forest hover:bg-white">
+              {data.ctaPrimary}<ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href={`/${locale}/destinations`} className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-white/55 px-7 font-semibold text-white transition hover:bg-white/10">
+              <Compass className="h-4 w-4" aria-hidden="true" /> {data.ctaSecondary}
+            </Link>
           </div>
         </div>
+
+        <div className="mt-14 grid max-w-3xl grid-cols-1 gap-3 border-t border-white/25 pt-5 sm:grid-cols-3 sm:gap-6">
+          {[data.stats.area, data.stats.river, data.stats.carFree].map((stat) => (
+            <p key={stat} className="flex items-center gap-2 text-sm font-medium text-white/90 sm:text-base">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime" /> {stat}
+            </p>
+          ))}
+        </div>
+        <a href="#destinations" className="absolute bottom-8 right-8 hidden items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:text-white lg:flex">
+          <ArrowDown className="h-4 w-4" aria-hidden="true" /> {data.seasonBadge}
+        </a>
       </div>
     </section>
   );

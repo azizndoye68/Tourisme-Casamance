@@ -1,9 +1,6 @@
-'use client';
-
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useLocale } from 'next-intl';
+import { ArrowRight, Bird, Compass, Landmark, Utensils, Waves } from 'lucide-react';
+import type { Locale } from '@/lib/i18n';
 
 interface ActivityItem {
   number: string;
@@ -12,77 +9,61 @@ interface ActivityItem {
   theme: string;
 }
 
-interface ActivitiesData {
-  title: string;
-  items: ActivityItem[];
-}
-
 interface ActivitiesProps {
-  data: ActivitiesData;
+  data: { title: string; items: ActivityItem[] };
+  locale: Locale;
 }
 
-const themeColors: Record<string, string> = {
-  Nature: 'bg-emerald/10 text-emerald border-emerald/20',
-  Culture: 'bg-coral/10 text-coral border-coral/20',
-  Gastronomie: 'bg-sun/10 text-sun border-sun/20',
-  Gastronomy: 'bg-sun/10 text-sun border-sun/20',
+const activitySlugs = ['pirogue-bolongs', 'observation-oiseaux', 'villages-poterie-diola', 'marches-gastronomie'];
+const activityIcons = [Waves, Bird, Landmark, Utensils];
+const activityLabels = {
+  fr: { eyebrow: 'À vivre sur place', explore: 'Découvrir', all: 'Toutes les expériences' },
+  en: { eyebrow: 'Experiences to remember', explore: 'Discover', all: 'Explore all experiences' },
 };
 
-export function Activities({ data }: ActivitiesProps) {
-  const locale = useLocale();
+export function Activities({ data, locale }: ActivitiesProps) {
+  const labels = activityLabels[locale];
 
   return (
-    <section className="section bg-forest text-cream" aria-labelledby="activities-title">
+    <section className="section bg-[#102c22] text-white" aria-labelledby="activities-title">
       <div className="container-main">
-        <header className="text-center max-w-2xl mx-auto mb-16">
-          <h2 id="activities-title" className="section-title text-cream">
-            {data.title}
-          </h2>
+        <header className="mb-9 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-lime">{labels.eyebrow}</p>
+            <h2 id="activities-title" className="section-title mt-3 text-white">{data.title}</h2>
+          </div>
+          <Link href={`/${locale}/activites`} className="hidden shrink-0 items-center gap-2 pb-1 text-sm font-semibold text-lime transition hover:text-white sm:inline-flex">
+            {labels.all}<ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </header>
-        <div className="space-y-6 max-w-4xl mx-auto" role="list" aria-label="Activités">
-          {data.items.map((item, index) => (
-            <article
-              key={index}
-              className={cn(
-                'card bg-forest/50 border border-forest/20 group',
-                'flex flex-col sm:flex-row sm:items-center gap-6 p-6 sm:p-8'
-              )}
-              role="listitem"
-            >
-              <div className="flex-shrink-0 w-14 h-14 rounded-pill bg-emerald/20 flex items-center justify-center font-display text-2xl font-bold text-emerald">
-                {item.number}
-              </div>
-              <div className="flex-1 text-left">
-                <h3 className="font-display text-xl font-bold text-cream mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-mint text-body mb-4">{item.description}</p>
-                <div className="flex items-center gap-3">
-                  <span
-                    className={cn(
-                      'px-3 py-1 rounded-pill text-caption font-medium border',
-                      themeColors[item.theme] || 'bg-forest/20 text-lime border-lime/20'
-                    )}
-                  >
-                    {item.theme}
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="list" aria-label={labels.eyebrow}>
+          {data.items.map((item, index) => {
+            const Icon = activityIcons[index] || Compass;
+            return (
+              <article key={item.number} className="group flex min-h-[250px] flex-col rounded-2xl border border-white/10 bg-white/[0.045] p-5 transition-colors hover:bg-white/[0.09] sm:min-h-[280px] sm:p-6" role="listitem">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-lime/15 text-lime">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
-                  <Link
-                    href={`/${locale}/activites/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                    className="flex items-center gap-1 text-lime hover:text-cream font-medium text-body-sm transition-colors group"
-                  >
-                    Découvrir
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <span className="font-display text-sm font-semibold tracking-[0.14em] text-white/40">{item.number}</span>
+                </div>
+                <div className="mt-auto pt-9">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-lime">{item.theme}</p>
+                  <h3 className="font-display text-xl font-semibold leading-snug tracking-tight text-white">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/65">{item.description}</p>
+                  <Link href={`/${locale}/activites/${activitySlugs[index] || activitySlugs[0]}`} className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-lime transition-colors hover:text-white">
+                    {labels.explore}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
-        <div className="text-center mt-12">
-          <a href={`/${locale}/activites`} className="btn-outline border-lime/30 text-lime hover:bg-lime/10">
-            Voir toutes les activités
-          </a>
-        </div>
+
+        <Link href={`/${locale}/activites`} className="btn-primary mt-7 w-full justify-center bg-lime text-forest hover:bg-white sm:hidden">
+          {labels.all}<ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );

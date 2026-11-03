@@ -1,9 +1,5 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X, Globe, MapPin, Calendar, Bed, Compass } from 'lucide-react';
+import { Bed, Calendar, Compass, Globe, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { locales, localeNames, localeFlags, type Locale } from '@/lib/i18n';
 
@@ -11,215 +7,100 @@ const navItems = [
   { href: '/destinations', icon: MapPin, key: 'destinations' },
   { href: '/activites', icon: Compass, key: 'activities' },
   { href: '/itineraires', icon: Calendar, key: 'itineraries' },
-  { href: '/quand-partir', icon: Calendar, key: 'whenToGo' },
   { href: '/hebergements', icon: Bed, key: 'whereToStay' },
 ] as const;
 
 interface HeaderProps {
   locale: Locale;
-  pathname: string;
+  pathname?: string;
   t: {
-    menu: {
-      destinations: string;
-      activities: string;
-      itineraries: string;
-      whenToGo: string;
-      whereToStay: string;
-    };
-    common: {
-      siteName: string;
-      cta: string;
-    };
-    header: {
-      navAriaLabel: string;
-      languageAriaLabel: string;
-      menuAriaLabel: string;
-    };
+    menu: { destinations: string; activities: string; itineraries: string; whereToStay: string };
+    common: { siteName: string; cta: string };
+    header: { navAriaLabel: string; languageAriaLabel: string };
   };
 }
 
-export function Header({ locale, pathname, t }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleLocaleChange = (newLocale: Locale) => {
-    const currentPath = pathname.replace(`/${locale}`, '') || '/';
-    router.push(`/${newLocale}${currentPath}`);
-  };
+export function Header({ locale, pathname = '', t }: HeaderProps) {
+  const currentPath = pathname.replace(`/${locale}`, '') || '/';
+  const languageLinks = (
+    <div className="flex items-center gap-1" aria-label={t.header.languageAriaLabel}>
+      {locales.map((nextLocale) => (
+        <Link
+          key={nextLocale}
+          href={`/${nextLocale}${currentPath}`}
+          aria-current={nextLocale === locale ? 'page' : undefined}
+          hrefLang={nextLocale}
+          className={cn(
+            'rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors',
+            nextLocale === locale ? 'bg-forest/10 text-forest' : 'text-muted hover:bg-forest/5 hover:text-forest',
+          )}
+        >
+          <span aria-hidden="true">{localeFlags[nextLocale]}</span> {nextLocale.toUpperCase()}
+        </Link>
+      ))}
+    </div>
+  );
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-cream/95 backdrop-blur-md shadow-soft border-b border-forest/10'
-          : 'bg-transparent'
-      )}
-      role="banner"
-    >
-      <nav
-        className="container-main"
-        aria-label={t.header.navAriaLabel}
-      >
-        <div className="flex h-16 items-center justify-between gap-4">
-          <Link
-            href={`/${locale}`}
-            className="flex items-center gap-2 shrink-0"
-            aria-label={t.common.siteName}
-          >
-            <span className="relative">
-              <svg
-                className="w-8 h-8 text-emerald"
-                viewBox="0 0 32 32"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 26C10.477 28 6 23.523 6 18S10.477 8 16 8s10 4.477 10 10-4.477 10-10 10z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M16 6v20M6 16h20"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
+    <header className="sticky top-0 z-50 border-b border-forest/10 bg-[#fbfaf5]/95 backdrop-blur-md">
+      <nav className="container-main" aria-label={t.header.navAriaLabel}>
+        <div className="flex h-[68px] items-center justify-between gap-4">
+          <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5" aria-label={t.common.siteName}>
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-lime" aria-hidden="true">
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2m0-14.2L4.9 19.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
               </svg>
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-coral rounded-full" aria-hidden="true" />
             </span>
-            <span className="font-display text-xl font-bold text-forest hidden sm:block">
-              Casamance
-            </span>
+            <span className="font-display text-lg font-bold tracking-tight text-forest">Casamance</span>
           </Link>
 
-          <div className="hidden md:flex md:items-center md:gap-6">
+          <div className="hidden items-center gap-5 lg:flex xl:gap-7">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={`/${locale}${item.href}`}
                 className={cn(
-                  'flex items-center gap-1.5 text-body-sm font-medium transition-colors',
+                  'whitespace-nowrap text-sm font-medium transition-colors',
                   pathname === `/${locale}${item.href}` || pathname.startsWith(`/${locale}${item.href}/`)
                     ? 'text-emerald'
-                    : 'text-muted hover:text-forest'
+                    : 'text-muted hover:text-forest',
                 )}
                 aria-current={pathname === `/${locale}${item.href}` ? 'page' : undefined}
               >
-                <item.icon className="w-4 h-4" aria-hidden="true" />
                 {t.menu[item.key]}
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:flex md:items-center md:gap-3">
-            <div className="relative" role="group" aria-label={t.header.languageAriaLabel}>
-              <button
-                className="flex items-center gap-1.5 px-3 py-1.5 text-body-sm font-medium text-forest bg-forest/5 rounded-pill hover:bg-forest/10 transition-colors"
-                aria-haspopup="listbox"
-                aria-expanded={false}
-              >
-                <span aria-hidden="true">{localeFlags[locale]}</span>
-                <span>{localeNames[locale]}</span>
-                <Globe className="w-4 h-4" aria-hidden="true" />
-              </button>
-              <ul className="absolute right-0 mt-2 w-40 bg-white rounded-card shadow-card border border-forest/10 py-2 opacity-0 invisible group-focus-within:opacity-100 group-focus-within:visible transition-all" role="listbox">
-                {locales.map((loc) => (
-                  <li key={loc} role="option" aria-selected={loc === locale}>
-                    <button
-                      onClick={() => handleLocaleChange(loc)}
-                      className={cn(
-                        'w-full flex items-center gap-2 px-4 py-2 text-body-sm transition-colors',
-                        loc === locale ? 'bg-emerald/10 text-emerald font-medium' : 'text-muted hover:text-forest hover:bg-forest/5'
-                      )}
-                    >
-                      <span aria-hidden="true">{localeFlags[loc]}</span>
-                      <span>{localeNames[loc]}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Link
-              href={`/${locale}/contact`}
-              className="btn-primary hidden sm:inline-flex"
-            >
+          <div className="hidden items-center gap-3 lg:flex">
+            {languageLinks}
+            <Link href={`/${locale}/itineraires`} className="btn-primary h-10 px-4 text-xs">
               {t.common.cta}
             </Link>
           </div>
-
-          <button
-            className="md:hidden p-2 rounded-lg text-forest hover:bg-forest/10 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? t.header.menuAriaLabel.replace('Ouvrir', 'Fermer') : t.header.menuAriaLabel}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="lg:hidden">{languageLinks}</div>
         </div>
 
-        <div
-          id="mobile-menu"
-          className={cn(
-            'md:hidden overflow-hidden transition-all duration-300 ease-spring',
-            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          )}
-          role="navigation"
-          aria-label={t.header.navAriaLabel}
-        >
-          <div className="py-4 space-y-3 border-t border-forest/10">
-            {navItems.map((item) => (
-              <Link
-                key={item.key}
-                href={`/${locale}${item.href}`}
-                className={cn(
-                  'flex items-center gap-3 px-2 py-2 rounded-lg text-body font-medium transition-colors',
-                  pathname === `/${locale}${item.href}` || pathname.startsWith(`/${locale}${item.href}/`)
-                    ? 'bg-emerald/10 text-emerald'
-                    : 'text-muted hover:text-forest hover:bg-forest/5'
-                )}
-                onClick={() => setIsMenuOpen(false)}
-                aria-current={pathname === `/${locale}${item.href}` ? 'page' : undefined}
-              >
-                <item.icon className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
-                {t.menu[item.key]}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-forest/10 flex items-center gap-3">
-              <div className="flex items-center gap-2" role="group" aria-label={t.header.languageAriaLabel}>
-                {locales.map((loc) => (
-                  <button
-                    key={loc}
-                    onClick={() => { handleLocaleChange(loc); setIsMenuOpen(false); }}
-                    className={cn(
-                      'flex items-center gap-1.5 px-3 py-2 rounded-pill text-body-sm font-medium transition-colors',
-                      loc === locale ? 'bg-emerald text-cream' : 'text-muted hover:text-forest hover:bg-forest/10'
-                    )}
-                    aria-pressed={loc === locale}
-                  >
-                    <span aria-hidden="true">{localeFlags[loc]}</span>
-                    <span>{localeNames[loc]}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
+        <div className="-mx-1 flex gap-1 overflow-x-auto border-t border-forest/10 py-2.5 lg:hidden" aria-label={t.header.navAriaLabel}>
+          {navItems.map((item) => (
             <Link
-              href={`/${locale}/contact`}
-              className="btn-primary w-full justify-center mt-2"
-              onClick={() => setIsMenuOpen(false)}
+              key={item.key}
+              href={`/${locale}${item.href}`}
+              className={cn(
+                'flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold transition-colors',
+                pathname === `/${locale}${item.href}` || pathname.startsWith(`/${locale}${item.href}/`)
+                  ? 'bg-forest text-white'
+                  : 'text-muted hover:bg-forest/5',
+              )}
             >
-              {t.common.cta}
+              <item.icon className="h-4 w-4" aria-hidden="true" />
+              {t.menu[item.key]}
             </Link>
-          </div>
+          ))}
+          <Link href={`/${locale}/itineraires`} className="flex shrink-0 items-center gap-1.5 rounded-full bg-lime px-3 py-2 text-xs font-bold text-forest">
+            <Globe className="h-4 w-4" aria-hidden="true" /> {t.common.cta}
+          </Link>
         </div>
       </nav>
     </header>

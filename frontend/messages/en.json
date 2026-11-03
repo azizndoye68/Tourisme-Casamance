@@ -140,6 +140,43 @@
       "whatsappText": "Chat on WhatsApp"
     }
   },
+  "destinations": {
+    "pageTitle": "Destinations",
+    "pageDescription": "Explore places across Casamance.",
+    "viewDetails": "View details",
+    "mapTitle": "Destination map",
+    "featuredTitle": "Places to discover",
+    "otherTitle": "More places",
+    "noDestinations": "No destinations are available.",
+    "relatedActivities": "Activities nearby",
+    "whereToStay": "Where to stay nearby"
+  },
+  "activites": {
+    "pageTitle": "Activities",
+    "pageDescription": "Discover experiences to enjoy in Casamance.",
+    "viewDetails": "View details",
+    "noActivities": "No activities are available.",
+    "relatedDestinations": "Places to discover"
+  },
+  "itineraires": {
+    "pageTitle": "Itineraries",
+    "pageDescription": "Explore trip ideas for Casamance.",
+    "viewItinerary": "View itinerary",
+    "noItineraries": "No itineraries are available.",
+    "dayByDay": "Day by day",
+    "summary": "At a glance"
+  },
+  "hebergements": {
+    "pageTitle": "Accommodation",
+    "pageDescription": "Find a place to stay in Casamance.",
+    "viewDetails": "View details",
+    "mapTitle": "Accommodation map",
+    "noAccommodations": "No accommodation is available.",
+    "galleryTitle": "Gallery",
+    "contactTitle": "Contact the accommodation",
+    "contactWhatsApp": "Contact on WhatsApp",
+    "backToList": "All accommodation"
+  },
   "seo": {
     "defaultTitle": "Casamance - Jewel of Southern Senegal | Tourism & Culture",
     "defaultDescription": "Discover Casamance: mangroves, beaches, Diola culture, ecotourism. Itineraries, accommodations, activities and practical info for your trip to Southern Senegal."

@@ -1,49 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: '**' },
-      { protocol: 'http', hostname: 'localhost', port: '1337' },
-      { protocol: 'http', hostname: '127.0.0.1', port: '1337' },
-    ],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
+  // Keep dev and production caches isolated so concurrent builds don't corrupt navigation assets.
+  distDir: process.env.NODE_ENV === 'development' ? '.next-dev' : '.next',
+  images: { unoptimized: true },
   experimental: {
+    cpus: 1,
     optimizePackageImports: ['lucide-react', 'clsx', 'tailwind-merge'],
   },
-  output: 'standalone',
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          { key: 'X-DNS-Prefetch-Control', value: 'on' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-        ],
-      },
-      {
-        source: '/:path*.@(jpg|jpeg|png|webp|avif|svg|ico)',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-      {
-        source: '/robots.txt',
-        destination: '/api/robots',
-      },
-    ];
-  },
+  output: 'export',
 };
 
 module.exports = nextConfig;

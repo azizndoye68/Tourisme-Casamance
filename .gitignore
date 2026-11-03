@@ -5,6 +5,7 @@ node_modules/
 
 # Build outputs
 .next/
+.next-dev/
 out/
 build/
 dist/
@@ -41,15 +42,6 @@ lerna-debug.log*
 coverage/
 .nyc_output/
 
-# Docker
-.docker/
-docker-compose.override.yml
-
-# Strapi
-strapi/.tmp/
-strapi/dist/
-strapi/public/uploads/
-
 # Misc
 *.pem
 .vercel
@@ -60,6 +52,5 @@ strapi/public/uploads/
 *.tsbuildinfo
 
 # Package managers
-package-lock.json (keep at root)
 yarn.lock
 pnpm-lock.yaml
