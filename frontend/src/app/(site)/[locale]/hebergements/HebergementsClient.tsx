@@ -7,6 +7,7 @@ import { Hebergement } from '@/lib/content';
 import { getContentImageUrl } from '@/lib/content';
 import { ClientMap } from '@/components/ClientMap';
 import type { MapMarker } from '@/components/Map';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface HebergementsClientProps {
   hebergements: Hebergement[];
@@ -46,6 +47,12 @@ export default function HebergementsClient({ hebergements, locale }: Hebergement
 
   const renderCard = (hebergement: Hebergement) => {
     const config = typeConfig[hebergement.type];
+    const whatsappUrl = getWhatsAppUrl(
+      hebergement.contactWhatsApp || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER,
+      isFr
+        ? `Bonjour, je souhaite réserver ou obtenir des informations sur ${hebergement.nom}.`
+        : `Hello, I would like to book or get information about ${hebergement.nom}.`,
+    );
 
     return (
       <article
@@ -89,6 +96,8 @@ export default function HebergementsClient({ hebergements, locale }: Hebergement
             <Link href={`/${locale}/hebergements/${hebergement.slug}`}>{hebergement.nom}</Link>
           </h3>
 
+          <p className="line-clamp-2 text-sm leading-6 text-muted">{hebergement.description}</p>
+
           {hebergement.destination && (
             <Link
               href={`/${locale}/destinations/${hebergement.destination.slug}`}
@@ -103,17 +112,10 @@ export default function HebergementsClient({ hebergements, locale }: Hebergement
           )}
 
           <div className="flex items-center justify-between pt-3 border-t border-cream">
-            {hebergement.contactWhatsApp && (
-              <a
-                href={`https://wa.me/${hebergement.contactWhatsApp.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-pill bg-lime text-forest font-semibold hover:bg-lime/80 transition-colors whitespace-nowrap text-sm"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.472.099-.174.05-.372-.025-.52-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.42.01-.643.078-.223.068-.482.149-.748.373-.265.224-.46.569-.46.569s-.298.399-.536.748c-.238.347-.366.64-.44.713-.074.075-.124.148-.249.223-.124.074-.249.2-.423.273-.173.074-.414.224-.69.573-.112.148-.25.334-.386.521L3.493 4.867c-.123-.172-.372-.298-.644-.297-.273.009-.469.198-.617.573-.148.373-.149.774 0 1.151l2.688 5.445c.099.224.298.599.546.922.224.298.47.574.817.847.348.274.669.473 1.05.627.633.25 1.576.025 2.47-.642.572-.422 1.02-.898 1.328-1.279.149-.174.42-.52.798-1.071.372-.549.498-1.05.677-1.349.18-.301.27-.582.353-.847.099-.299.047-.573-.05-.748z" />
-                </svg>
-                {isFr ? 'WhatsApp' : 'WhatsApp'}
+            {whatsappUrl && (
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1fb85a]" onClick={(event) => event.stopPropagation()}>
+                <span aria-hidden="true">◉</span>
+                WhatsApp
               </a>
             )}
             <Link

@@ -3,10 +3,12 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import { Destination, Activite, Hebergement } from '@/lib/content';
 import { ClientMap } from '@/components/ClientMap';
 import type { MapMarker } from '@/components/Map';
 import { getContentImageUrl } from '@/lib/content';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface DestinationDetailClientProps {
   destination: Destination;
@@ -36,6 +38,12 @@ export default function DestinationDetailClient({ destination, activites, heberg
   const isFr = locale === 'fr';
   const typeLabel = typeLabels[destination.type][locale];
   const typeIcon = typeIcons[destination.type] || '📍';
+  const whatsappUrl = getWhatsAppUrl(
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER,
+    isFr
+      ? `Bonjour, je prépare un séjour en Casamance et je souhaite des informations pour découvrir ${destination.nom}.`
+      : `Hello, I am planning a trip to Casamance and would like information about visiting ${destination.nom}.`,
+  );
 
   // Map markers
   const markers: MapMarker[] = [];
@@ -151,6 +159,28 @@ export default function DestinationDetailClient({ destination, activites, heberg
             {isFr ? 'Description' : 'Description'}
           </h2>
           <div className="text-muted text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: destination.description }} />
+        </section>
+
+        <section className="relative overflow-hidden rounded-3xl bg-forest px-6 py-8 text-white sm:px-9 sm:py-10" aria-labelledby="destination-contact-title">
+          <div className="pointer-events-none absolute -right-8 -top-16 h-56 w-56 rounded-full border-[36px] border-lime/10" aria-hidden="true" />
+          <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime">{isFr ? 'On prépare votre escapade' : 'Let’s plan your trip'}</p>
+              <h2 id="destination-contact-title" className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
+                {isFr ? `Envie de découvrir ${destination.nom} ?` : `Ready to discover ${destination.nom}?`}
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-white/75 sm:text-base">
+                {isFr ? 'Écrivez-nous pour préparer votre séjour et trouver les bonnes adresses.' : 'Message us to plan your stay and find local recommendations.'}
+              </p>
+            </div>
+            {whatsappUrl && (
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1fb85a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                {isFr ? 'Nous écrire sur WhatsApp' : 'Message us on WhatsApp'}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            )}
+          </div>
         </section>
 
         {/* Map */}

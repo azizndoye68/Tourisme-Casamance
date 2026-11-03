@@ -38,6 +38,7 @@ export interface Activite {
   duree: string | null;
   galerie: ContentImage[];
   destinations: Destination[];
+  destinationSlugs?: string[];
   locale: string;
 }
 
@@ -68,6 +69,8 @@ export interface Hebergement {
   type: 'campement' | 'ecolodge' | 'hotel';
   prixIndicatif: string | null;
   contactWhatsApp: string | null;
+  description: string;
+  destinationSlug: string;
   galerie: ContentImage[];
   destination: Destination | null;
   locale: string;
@@ -94,6 +97,13 @@ const imageIds: Record<string, string> = {
   'observation-oiseaux': 'photo-1472396961693-142e6e269027',
   'villages-poterie-diola': 'photo-1516026672322-bc52d61a55d5',
   'marches-gastronomie': 'photo-1501339847302-ac426a4a7cbb',
+  'balade-velo-rizieres': 'photo-1473448912268-2022ce9509d8',
+  'surf-cap-skirring': 'photo-1502680390469-be75c86b636f',
+  'foret-diembering': 'photo-1448375240586-882707db888b',
+  'casa-motel-ziguinchor': 'photo-1566073771259-6a8506099945',
+  'hotel-balafon-cap-skirring': 'photo-1571896349842-33c89424de2d',
+  'hotel-maya-cap-skirring': 'photo-1571003123894-1f0594d2b5d9',
+  'atlantic-campement-abene': 'photo-1510798831971-661eb04b3739',
   'campement-kadiandoumagne': 'photo-1448375240586-882707db888b',
   'ecolodge-le-paletuvier': 'photo-1448375240586-882707db888b',
   'hotel-de-la-plage-cap-skirring': 'photo-1500375592092-40eb2168fd21',
@@ -153,7 +163,7 @@ export async function getActiviteBySlug(slug: string, locale = 'fr'): Promise<Ac
 }
 
 export async function getActivitesByDestination(_destinationSlug: string, locale = 'fr'): Promise<Activite[]> {
-  return (await getActivites(locale)).filter((item) => item.destinations.length > 0);
+  return (await getActivites(locale)).filter((item) => item.destinationSlugs?.includes(_destinationSlug));
 }
 
 export async function getItineraires(locale = 'fr'): Promise<Itineraire[]> {
@@ -168,10 +178,11 @@ export async function getItineraireBySlug(slug: string, locale = 'fr'): Promise<
 }
 
 export async function getHebergements(locale = 'fr'): Promise<Hebergement[]> {
+  const destinations = await getDestinations(locale);
   return withIdentity(data.hebergements[validLocale(locale)], locale as Locale).map((item) => ({
     ...item,
     galerie: editorialGallery(item.slug, item.nom),
-    destination: null,
+    destination: destinations.find((destination) => destination.slug === item.destinationSlug) ?? null,
   }));
 }
 
@@ -180,5 +191,5 @@ export async function getHebergementBySlug(slug: string, locale = 'fr'): Promise
 }
 
 export async function getHebergementsByDestination(_destinationSlug: string, locale = 'fr'): Promise<Hebergement[]> {
-  return (await getHebergements(locale)).filter((item) => item.destination !== null);
+  return (await getHebergements(locale)).filter((item) => item.destination?.slug === _destinationSlug);
 }

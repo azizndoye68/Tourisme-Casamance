@@ -214,6 +214,41 @@
         "description": "La cuisine casamançaise est un métissage savoureux : riz (base), poisson (fleuve/mer), légumes (niébé, gombo, aubergine africaine), épices (piment, ail, oignon, netetou - graines de néré fermentées). Plats emblématiques : thieboudienne (riz au poisson, légumes, sauce rouge), yassa (poulet/poisson mariné citron-oignon), mafé (sauce arachide), soupe kandja (gombo). Spécialités locales : huîtres de palétuvier crues au citron, crabes farcis, poissons braisés (capitaine, bar, dorade). Boissons : bissap (hibiscus), bouye (baobab), gingembre, vin de palme (bander). Marchés : Saint-Maur (Ziguinchor, couvert, tous les jours), Normandie (Ziguinchor, plein air, mar/sam), Oussouye (ven), Kafountine (mar/sam). Atelier cuisine possible chez l'habitant.",
         "theme": "Gastronomie",
         "duree": "3h (marché + dégustation) ou atelier 4h"
+      },
+      {
+        "titre": "Balade à vélo entre villages et rizières",
+        "slug": "balade-velo-rizieres",
+        "resume": "Parcourez les chemins ombragés à votre rythme, entre rizières, palmeraies et villages de Basse Casamance.",
+        "description": "Accompagné d’un guide local, partez sur des pistes tranquilles entre les villages et les rizières. Les arrêts permettent de rencontrer les habitants, découvrir les paysages agricoles et faire une pause à l’ombre des palmiers. Parcours adapté au niveau du groupe, vélo à organiser auprès d’un prestataire local.",
+        "theme": "Aventure",
+        "duree": "2h à une demi-journée",
+        "destinationSlugs": [
+          "oussouye",
+          "ile-de-carabane"
+        ]
+      },
+      {
+        "titre": "Initiation au surf à Cap Skirring",
+        "slug": "surf-cap-skirring",
+        "resume": "Découvrez les vagues de l’Atlantique avec un moniteur local et profitez d’une session adaptée à votre niveau.",
+        "description": "Une première approche du surf sur la côte de Cap Skirring, avec une initiation encadrée et des conseils adaptés aux débutants. Les conditions et le matériel sont à confirmer avec un prestataire local selon la saison et l’état de la mer.",
+        "theme": "Aventure",
+        "duree": "2h",
+        "destinationSlugs": [
+          "cap-skirring"
+        ]
+      },
+      {
+        "titre": "Balade en forêt de Diembering",
+        "slug": "foret-diembering",
+        "resume": "Marchez sous les grands arbres et découvrez avec un guide les paysages et les traditions des villages de la côte.",
+        "description": "Une promenade douce à travers les paysages arborés de Diembering, ponctuée d’explications sur les plantes, les usages locaux et la vie des villages. La visite se fait avec un guide local et dans le respect des lieux et des coutumes.",
+        "theme": "Nature",
+        "duree": "2h à 3h",
+        "destinationSlugs": [
+          "cap-skirring",
+          "oussouye"
+        ]
       }
     ],
     "en": [
@@ -248,6 +283,41 @@
         "description": "Casamance cuisine is a delicious melting pot: rice (staple), fish (river/sea), vegetables (cowpea, okra, African eggplant), spices (chilli, garlic, onion, netetou - fermented néré seeds). Signature dishes: thieboudienne (rice with fish, vegetables, red sauce), yassa (chicken/fish marinated lemon-onion), mafé (peanut sauce), kandja soup (okra). Local specialities: mangrove oysters raw with lemon, stuffed crabs, grilled fish (captain, barramundi, sea bream). Drinks: bissap (hibiscus), bouye (baobab), ginger, palm wine (bander). Markets: Saint-Maur (Ziguinchor, covered, daily), Normandie (Ziguinchor, open-air, Tue/Sat), Oussouye (Fri), Kafountine (Tue/Sat). Cooking workshop possible with local family.",
         "theme": "Gastronomie",
         "duree": "3h (market + tasting) or 4h workshop"
+      },
+      {
+        "titre": "Cycling through villages and rice fields",
+        "slug": "balade-velo-rizieres",
+        "resume": "Follow shaded paths at your own pace, between rice fields, palm groves and Lower Casamance villages.",
+        "description": "Ride quiet tracks with a local guide, stopping to meet residents and discover the agricultural landscape. The route can be adapted to the group; arrange bicycle hire with a local provider.",
+        "theme": "Aventure",
+        "duree": "2h to half a day",
+        "destinationSlugs": [
+          "oussouye",
+          "carabane-island"
+        ]
+      },
+      {
+        "titre": "Surf lesson in Cap Skirring",
+        "slug": "surf-cap-skirring",
+        "resume": "Discover Atlantic waves with a local instructor and enjoy a session suited to your level.",
+        "description": "A first surf experience on the Cap Skirring coast, with an instructor and guidance for beginners. Conditions and equipment should be confirmed with a local provider depending on the season and sea.",
+        "theme": "Aventure",
+        "duree": "2 hours",
+        "destinationSlugs": [
+          "cap-skirring"
+        ]
+      },
+      {
+        "titre": "Walk in Diembering forest",
+        "slug": "foret-diembering",
+        "resume": "Walk beneath tall trees and discover the landscape and village traditions with a local guide.",
+        "description": "A gentle walk through the wooded landscapes of Diembering, with explanations about plants, local uses and village life. Visit with a local guide and respect for local places and customs.",
+        "theme": "Nature",
+        "duree": "2 to 3 hours",
+        "destinationSlugs": [
+          "cap-skirring",
+          "oussouye"
+        ]
       }
     ]
   },
@@ -492,40 +562,88 @@
         "slug": "campement-kadiandoumagne",
         "type": "campement",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "basse-casamance",
+        "description": "Un campement convivial pour découvrir Ziguinchor et le fleuve, avec une ambiance simple et un point de départ pratique pour les excursions en Casamance."
       },
       {
         "nom": "Écolodge Le Palétuvier",
         "slug": "ecolodge-le-paletuvier",
         "type": "ecolodge",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "basse-casamance",
+        "description": "Une adresse tournée vers la nature et les paysages de mangrove, idéale pour ralentir et explorer les bolongs avec un guide local."
       },
       {
         "nom": "Hôtel de la Plage Cap Skirring",
         "slug": "hotel-de-la-plage-cap-skirring",
         "type": "hotel",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "cap-skirring",
+        "description": "Un séjour balnéaire à proximité de la grande plage de Cap Skirring, entre baignades, détente et découverte des villages voisins."
       },
       {
         "nom": "Campement Carabane Nature",
         "slug": "campement-carabane-nature",
         "type": "campement",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "ile-de-carabane",
+        "description": "Un hébergement paisible pour profiter de l’île à pied, de ses chemins de sable, de son patrimoine et des couchers de soleil sur le fleuve."
       },
       {
         "nom": "Écolodge Oussouye Village",
         "slug": "ecolodge-oussouye-village",
         "type": "ecolodge",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "oussouye",
+        "description": "Un point de chute au cœur du pays diola pour découvrir les villages, les rizières, les cases à impluvium et les savoir-faire locaux."
       },
       {
         "nom": "Kafountine Beach Lodge",
         "slug": "kafountine-beach-lodge",
         "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null,
+        "destinationSlug": "kafountine-abene",
+        "description": "Une base agréable pour profiter de la plage, du port de pêche de Kafountine et des excursions dans les bolongs."
+      },
+      {
+        "nom": "Casa Motel",
+        "slug": "casa-motel-ziguinchor",
+        "type": "hotel",
+        "destinationSlug": "basse-casamance",
+        "description": "Un hôtel de douze chambres situé à Ziguinchor, pratique pour une étape en ville et pour rayonner vers le fleuve Casamance.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hôtel Balafon",
+        "slug": "hotel-balafon-cap-skirring",
+        "type": "hotel",
+        "destinationSlug": "cap-skirring",
+        "description": "Un hôtel au centre de Cap Skirring, à proximité des services du village et de la côte.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hôtel Maya",
+        "slug": "hotel-maya-cap-skirring",
+        "type": "hotel",
+        "destinationSlug": "cap-skirring",
+        "description": "Un hôtel situé près de Boucotte, au nord de Cap Skirring, pour profiter de la côte et de l’océan.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Atlantic Campement",
+        "slug": "atlantic-campement-abene",
+        "type": "campement",
+        "destinationSlug": "kafountine-abene",
+        "description": "Un campement touristique à Abéné, point de départ pour découvrir le village, la plage et les environs.",
         "prixIndicatif": null,
         "contactWhatsApp": null
       }
@@ -536,40 +654,88 @@
         "slug": "kadiandoumagne-campement",
         "type": "campement",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "lower-casamance",
+        "description": "A welcoming campement for discovering Ziguinchor and the river, with a relaxed atmosphere and a practical base for local excursions."
       },
       {
         "nom": "Le Palétuvier Ecolodge",
         "slug": "le-paletuvier-ecolodge",
         "type": "ecolodge",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "lower-casamance",
+        "description": "A nature-focused stay among mangrove landscapes, ideal for slowing down and exploring the bolongs with a local guide."
       },
       {
         "nom": "Hotel de la Plage Cap Skirring",
         "slug": "hotel-de-la-plage-cap-skirring",
         "type": "hotel",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "cap-skirring",
+        "description": "A beach stay near Cap Skirring’s long sandy shore, with time for swimming, relaxing and visiting nearby villages."
       },
       {
         "nom": "Carabane Nature Campement",
         "slug": "carabane-nature-campement",
         "type": "campement",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "carabane-island",
+        "description": "A peaceful base for exploring the island on foot, its sandy paths, heritage and sunsets over the river."
       },
       {
         "nom": "Oussouye Village Ecolodge",
         "slug": "oussouye-village-ecolodge",
         "type": "ecolodge",
         "prixIndicatif": null,
-        "contactWhatsApp": null
+        "contactWhatsApp": null,
+        "destinationSlug": "oussouye",
+        "description": "A base in Diola country for discovering villages, rice fields, impluvium houses and local crafts."
       },
       {
         "nom": "Kafountine Beach Lodge",
         "slug": "kafountine-beach-lodge",
         "type": "ecolodge",
+        "prixIndicatif": null,
+        "contactWhatsApp": null,
+        "destinationSlug": "kafountine-and-abene",
+        "description": "A relaxed base for enjoying the beach, Kafountine fishing port and excursions through the bolongs."
+      },
+      {
+        "nom": "Casa Motel",
+        "slug": "casa-motel-ziguinchor",
+        "type": "hotel",
+        "destinationSlug": "lower-casamance",
+        "description": "A twelve-room hotel in Ziguinchor, convenient for a city stop and for exploring the Casamance River.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hotel Balafon",
+        "slug": "hotel-balafon-cap-skirring",
+        "type": "hotel",
+        "destinationSlug": "cap-skirring",
+        "description": "A hotel in central Cap Skirring, close to village amenities and the coast.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Hotel Maya",
+        "slug": "hotel-maya-cap-skirring",
+        "type": "hotel",
+        "destinationSlug": "cap-skirring",
+        "description": "A hotel near Boucotte, north of Cap Skirring, for enjoying the coast and ocean.",
+        "prixIndicatif": null,
+        "contactWhatsApp": null
+      },
+      {
+        "nom": "Atlantic Campement",
+        "slug": "atlantic-campement-abene",
+        "type": "campement",
+        "destinationSlug": "kafountine-and-abene",
+        "description": "A tourist campement in Abéné and a base for exploring the village, beach and surrounding area.",
         "prixIndicatif": null,
         "contactWhatsApp": null
       }
