@@ -18,7 +18,7 @@ export function BandeauAccueil({ data, locale }: { data: DonneesBandeau; locale:
   return (
     <section className="hero relative isolate flex min-h-[680px] items-end overflow-hidden bg-forest pt-24 text-white sm:min-h-[760px] lg:min-h-[820px]" aria-labelledby="hero-title">
       <Image
-        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg"
         alt="La plage de Cap Skirring et l’océan Atlantique en Casamance"
         fill
         priority

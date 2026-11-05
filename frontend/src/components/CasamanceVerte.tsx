@@ -14,7 +14,7 @@ export function CasamanceVerte({ data }: CasamanceVerteProps) {
     <section
       className="relative isolate overflow-hidden bg-forest text-cream"
       aria-labelledby="green-title"
-      style={{ backgroundImage: 'linear-gradient(90deg, rgba(7,27,23,.96), rgba(7,27,23,.76)), url(https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/1280px-Mangroves_in_Casamance.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}
+      style={{ backgroundImage: 'linear-gradient(90deg, rgba(7,27,23,.96), rgba(7,27,23,.76)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/1280px-Mangroves_in_Casamance.jpg)', backgroundPosition: 'center', backgroundSize: 'cover' }}
     >
       <div className="container-main grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:py-24">
         <header className="max-w-3xl">

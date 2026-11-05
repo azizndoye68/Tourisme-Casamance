@@ -20,12 +20,12 @@ interface DestinationsProps {
 }
 
 const destinationImages: Record<string, string> = {
-  'Île de Carabane': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/640px-Carabane-Bolong.jpg',
-  'Carabane Island': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/640px-Carabane-Bolong.jpg',
-  'Cap Skirring': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/640px-Cap-Skirring-Beach-2007.jpg',
+  'Île de Carabane': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/960px-Carabane-Bolong.jpg',
+  'Carabane Island': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/960px-Carabane-Bolong.jpg',
+  'Cap Skirring': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/960px-Cap-Skirring-Beach-2007.jpg',
   Oussouye: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg/960px-Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg',
-  'Kafountine & Abéné': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
-  'Kafountine & Abené': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
+  'Kafountine & Abéné': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/960px-Mangroves_in_Casamance.jpg',
+  'Kafountine & Abené': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/960px-Mangroves_in_Casamance.jpg',
   'Basse Casamance': 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
   'Lower Casamance': 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
 };
@@ -45,7 +45,7 @@ export function Destinations({ data, locale }: DestinationsProps) {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {data.items.map((item, index) => {
             const isFeatured = item.featured;
-            const imgSrc = destinationImages[item.name] || 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg';
+            const imgSrc = destinationImages[item.name] || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/960px-Mangroves_in_Casamance.jpg';
 
             return (
               <article

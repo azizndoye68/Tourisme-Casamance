@@ -6,7 +6,7 @@ export default function LanguageLandingPage() {
   return (
     <main className="relative isolate flex min-h-screen items-end overflow-hidden bg-forest px-5 pb-12 pt-12 text-white sm:px-10 sm:pb-16 lg:px-16">
       <Image
-        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg"
         alt="Plage de Cap Skirring, sur la côte atlantique de Casamance"
         fill
         priority

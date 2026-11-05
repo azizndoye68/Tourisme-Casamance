@@ -92,13 +92,13 @@ const data = content as StaticContent;
 const validLocale = (locale: string): Locale => (locale === 'en' ? 'en' : 'fr');
 
 const photos = {
-  plage: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg',
-  carabane: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/1280px-Carabane-Bolong.jpg',
+  plage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg',
+  carabane: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/1280px-Carabane-Bolong.jpg',
   pirogue: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
-  mangrove: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/1280px-Mangroves_in_Casamance.jpg',
+  mangrove: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/1280px-Mangroves_in_Casamance.jpg',
   oiseaux: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Avifaune_dans_la_mangrove_de_Casamance%2C_S%C3%A9n%C3%A9gal.webp',
   impluvium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg/960px-Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg',
-  rizieres: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Rice_paddy%2C_Casamance%2C_Senegal.jpg/1280px-Rice_paddy%2C_Casamance%2C_Senegal.jpg',
+  rizieres: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rice_paddy%2C_Casamance%2C_Senegal.jpg/1280px-Rice_paddy%2C_Casamance%2C_Senegal.jpg',
   hebergement: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=72',
   ecolodge: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1000&q=72',
 } as const;
@@ -131,7 +131,7 @@ const photoParSlug: Record<string, keyof typeof photos> = {
 function editorialGallery(slug: string, alt: string): ContentImage[] {
   const photo = photos[photoParSlug[slug] || 'mangrove'];
   const thumbnail = photo
-    .replace('/1280px-', '/640px-')
+    .replace('/1280px-', '/960px-')
     .replace('w=1000', 'w=640');
   return [{
     url: photo,

@@ -15,8 +15,8 @@ interface ListeItinerairesProps {
 }
 
 const editorialPhotos = [
-  'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/640px-Cap-Skirring-Beach-2007.jpg',
-  'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/960px-Cap-Skirring-Beach-2007.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/960px-Mangroves_in_Casamance.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
 ];
 
