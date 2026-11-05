@@ -15,9 +15,9 @@ interface ListeItinerairesProps {
 }
 
 const editorialPhotos = [
-  'photo-1500375592092-40eb2168fd21',
-  'photo-1448375240586-882707db888b',
-  'photo-1518837695005-2083093ee35b',
+  'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/640px-Cap-Skirring-Beach-2007.jpg',
+  'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
 ];
 
 const translations = {
@@ -60,7 +60,7 @@ export default function ListeItineraires({ itineraires, locale, labels }: ListeI
               <article key={itineraire.documentId} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-forest/10 bg-white shadow-[0_10px_35px_-25px_rgba(14,42,32,.5)] transition-shadow hover:shadow-[0_18px_42px_-24px_rgba(14,42,32,.4)]" role="listitem">
                 <div className="relative h-48 overflow-hidden bg-forest sm:h-52">
                   <Image
-                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=900&q=70`}
+                    src={photo}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"

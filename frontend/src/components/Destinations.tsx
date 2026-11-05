@@ -20,14 +20,14 @@ interface DestinationsProps {
 }
 
 const destinationImages: Record<string, string> = {
-  'Île de Carabane': 'photo-1473116763249-2faaef81ccda',
-  'Carabane Island': 'photo-1473116763249-2faaef81ccda',
-  'Cap Skirring': 'photo-1500375592092-40eb2168fd21',
-  Oussouye: 'photo-1516026672322-bc52d61a55d5',
-  'Kafountine & Abéné': 'photo-1518837695005-2083093ee35b',
-  'Kafountine & Abené': 'photo-1518837695005-2083093ee35b',
-  'Basse Casamance': 'photo-1448375240586-882707db888b',
-  'Lower Casamance': 'photo-1448375240586-882707db888b',
+  'Île de Carabane': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/640px-Carabane-Bolong.jpg',
+  'Carabane Island': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/640px-Carabane-Bolong.jpg',
+  'Cap Skirring': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/640px-Cap-Skirring-Beach-2007.jpg',
+  Oussouye: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg/960px-Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg',
+  'Kafountine & Abéné': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
+  'Kafountine & Abené': 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg',
+  'Basse Casamance': 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
+  'Lower Casamance': 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
 };
 
 const destinationSlugs = ['ile-de-carabane', 'cap-skirring', 'oussouye', 'kafountine-abene', 'basse-casamance'];
@@ -45,8 +45,7 @@ export function Destinations({ data, locale }: DestinationsProps) {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {data.items.map((item, index) => {
             const isFeatured = item.featured;
-            const photo = destinationImages[item.name] || 'photo-1448375240586-882707db888b';
-            const imgSrc = `https://images.unsplash.com/${photo}?auto=format&fit=crop&w=800&q=70`;
+            const imgSrc = destinationImages[item.name] || 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/640px-Mangroves_in_Casamance.jpg';
 
             return (
               <article

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Bed, Calendar, Compass, Globe, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utilitaires';
 import { locales, localeNames, localeFlags, type Locale } from '@/lib/langues';
+import { LogoCasamance } from '@/components/LogoCasamance';
 
 const navItems = [
   { href: '/destinations', icon: MapPin, key: 'destinations' },
@@ -46,13 +47,11 @@ export function Entete({ locale, pathname = '', t }: EnteteProps) {
       <nav className="container-main" aria-label={t.header.navAriaLabel}>
         <div className="flex h-[68px] items-center justify-between gap-4">
           <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5" aria-label={t.common.siteName}>
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-lime" aria-hidden="true">
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2m0-14.2L4.9 19.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+            <LogoCasamance className="h-11 w-11" />
+            <span className="flex flex-col leading-tight">
+              <span className="font-display text-lg font-bold tracking-tight text-forest">Casamance</span>
+              <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.17em] text-emerald">Sénégal · Afrique de l’Ouest</span>
             </span>
-            <span className="font-display text-lg font-bold tracking-tight text-forest">Casamance</span>
           </Link>
 
           <div className="hidden items-center gap-5 lg:flex xl:gap-7">

@@ -48,7 +48,7 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
   const featured = destinations.filter(d => d.miseEnAvant);
   const others = destinations.filter(d => !d.miseEnAvant);
 
-  const renderDestinationCard = (dest: Destination, isFeatured = false) => {
+  const renderDestinationCard = (dest: Destination) => {
     const typeLabel = typeLabels[dest.type][locale];
     const typeIcon = typeIcons[dest.type] || '📍';
 
@@ -58,21 +58,17 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
     return (
       <article
         key={dest.documentId}
-        className={`group relative overflow-hidden rounded-card-lg bg-cream ${
-          isFeatured ? 'md:col-span-2 md:row-span-2' : ''
-        }`}
+        className="group overflow-hidden rounded-card-lg border border-forest/10 bg-white shadow-[0_14px_38px_-30px_rgba(14,42,32,.65)] transition-shadow hover:shadow-[0_20px_48px_-30px_rgba(14,42,32,.65)]"
       >
         {/* Image */}
-        <div className="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden">
+        <div className="relative h-56 overflow-hidden bg-[#e8efe1] sm:h-64 lg:h-60">
           {mainImage ? (
             <Image
-              src={mainImage.url}
+              src={mainImage.formats?.thumbnail?.url || mainImage.url}
               alt={mainImage.alternativeText || dest.nom}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
-              placeholder="blur"
-              blurDataURL={mainImage.formats?.thumbnail?.url || mainImage.url}
             />
           ) : (
             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
@@ -98,17 +94,17 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          <h3 className="text-2xl md:text-3xl font-bold text-forest mb-2 tracking-tight">
+        <div className="flex min-h-[260px] flex-col p-5 sm:p-6">
+          <h3 className="mb-2 text-xl font-bold tracking-tight text-forest sm:text-2xl">
             <Link href={`/${locale}/destinations/${dest.slug}`} className="hover:text-emerald transition-colors">
               {dest.nom}
             </Link>
           </h3>
-          <p className="text-muted mb-4 line-clamp-2">{dest.resume}</p>
+          <p className="mb-4 line-clamp-3 text-sm leading-6 text-muted sm:text-base">{dest.resume}</p>
 
           {/* Tags */}
           {dest.tags && dest.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="mb-5 flex flex-wrap gap-2">
               {dest.tags.slice(0, 4).map((tag, i) => (
                 <span
                   key={i}
@@ -127,7 +123,7 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
 
           <Link
             href={`/${locale}/destinations/${dest.slug}`}
-            className="inline-flex items-center gap-1.5 text-emerald font-semibold hover:gap-3 transition-all"
+            className="mt-auto inline-flex items-center gap-1.5 font-semibold text-emerald transition-all hover:gap-3"
           >
             {t('viewDetails')}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,8 +151,8 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
       {featured.length > 0 && (
         <section aria-labelledby="featured-title">
           <h2 id="featured-title" className="sr-only">{t('featuredTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featured.map((dest, i) => renderDestinationCard(dest, true))}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {featured.map((dest) => renderDestinationCard(dest))}
           </div>
         </section>
       )}
@@ -165,8 +161,8 @@ export default function ListeDestinations({ destinations, locale }: ListeDestina
       {others.length > 0 && (
         <section aria-labelledby="other-title">
           <h2 id="other-title" className="sr-only">{t('otherTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {others.map(dest => renderDestinationCard(dest, false))}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {others.map((dest) => renderDestinationCard(dest))}
           </div>
         </section>
       )}

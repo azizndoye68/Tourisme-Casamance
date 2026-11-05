@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Hebergement } from '@/lib/contenu';
-import { getContentImageUrl } from '@/lib/contenu';
+import { getContentThumbnailUrl } from '@/lib/contenu';
 import { CarteInteractive } from '@/components/CarteInteractive';
 import type { RepereCarte } from '@/components/Carte';
 import { getWhatsAppUrl } from '@/lib/lienWhatsApp';
@@ -62,13 +62,11 @@ export default function ListeHebergements({ hebergements, locale }: ListeHeberge
         <div className="relative aspect-[4/3] overflow-hidden">
           {hebergement.galerie?.[0] ? (
             <Image
-              src={getContentImageUrl(hebergement.galerie[0]) || ''}
+              src={getContentThumbnailUrl(hebergement.galerie[0]) || ''}
               alt={hebergement.galerie[0].alternativeText || hebergement.nom}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              placeholder="blur"
-              blurDataURL={hebergement.galerie[0].formats?.thumbnail?.url || hebergement.galerie[0].url}
             />
           ) : (
             <div className="w-full h-full bg-muted/20 flex items-center justify-center">

@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Activite } from '@/lib/contenu';
-import { getContentImageUrl } from '@/lib/contenu';
+import { getContentThumbnailUrl } from '@/lib/contenu';
 
 interface ListeActivitesProps {
   activites: Activite[];
@@ -72,13 +72,11 @@ export default function ListeActivites({ activites, locale }: ListeActivitesProp
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {activite.galerie?.[0] ? (
                     <Image
-                      src={getContentImageUrl(activite.galerie[0]) || ''}
+                      src={getContentThumbnailUrl(activite.galerie[0]) || ''}
                       alt={activite.galerie[0].alternativeText || activite.titre}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      placeholder="blur"
-                      blurDataURL={activite.galerie[0].formats?.thumbnail?.url || activite.galerie[0].url}
                     />
                   ) : (
                     <div className="w-full h-full bg-muted/20 flex items-center justify-center">

@@ -91,38 +91,54 @@ type StaticContent = {
 const data = content as StaticContent;
 const validLocale = (locale: string): Locale => (locale === 'en' ? 'en' : 'fr');
 
-const imageIds: Record<string, string> = {
-  'ile-de-carabane': 'photo-1473116763249-2faaef81ccda',
-  'cap-skirring': 'photo-1500375592092-40eb2168fd21',
-  oussouye: 'photo-1516026672322-bc52d61a55d5',
-  'kafountine-abene': 'photo-1518837695005-2083093ee35b',
-  'basse-casamance': 'photo-1448375240586-882707db888b',
-  'pirogue-bolongs': 'photo-1518837695005-2083093ee35b',
-  'observation-oiseaux': 'photo-1472396961693-142e6e269027',
-  'villages-poterie-diola': 'photo-1516026672322-bc52d61a55d5',
-  'marches-gastronomie': 'photo-1501339847302-ac426a4a7cbb',
-  'balade-velo-rizieres': 'photo-1473448912268-2022ce9509d8',
-  'surf-cap-skirring': 'photo-1502680390469-be75c86b636f',
-  'foret-diembering': 'photo-1448375240586-882707db888b',
-  'casa-motel-ziguinchor': 'photo-1566073771259-6a8506099945',
-  'hotel-balafon-cap-skirring': 'photo-1571896349842-33c89424de2d',
-  'hotel-maya-cap-skirring': 'photo-1571003123894-1f0594d2b5d9',
-  'atlantic-campement-abene': 'photo-1510798831971-661eb04b3739',
-  'campement-kadiandoumagne': 'photo-1448375240586-882707db888b',
-  'ecolodge-le-paletuvier': 'photo-1448375240586-882707db888b',
-  'hotel-de-la-plage-cap-skirring': 'photo-1500375592092-40eb2168fd21',
-  'campement-carabane-nature': 'photo-1473116763249-2faaef81ccda',
-  'ecolodge-oussouye-village': 'photo-1516026672322-bc52d61a55d5',
-  'kafountine-beach-lodge': 'photo-1518837695005-2083093ee35b',
+const photos = {
+  plage: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Cap-Skirring-Beach-2007.jpg/1280px-Cap-Skirring-Beach-2007.jpg',
+  carabane: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Carabane-Bolong.jpg/1280px-Carabane-Bolong.jpg',
+  pirogue: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Fleuve_casamance.jpg',
+  mangrove: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Mangroves_in_Casamance.jpg/1280px-Mangroves_in_Casamance.jpg',
+  oiseaux: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Avifaune_dans_la_mangrove_de_Casamance%2C_S%C3%A9n%C3%A9gal.webp',
+  impluvium: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg/960px-Alyssa_K._Barry_Enampore%2C_Casamance%2C_Senegal.jpg',
+  rizieres: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Rice_paddy%2C_Casamance%2C_Senegal.jpg/1280px-Rice_paddy%2C_Casamance%2C_Senegal.jpg',
+  hebergement: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=72',
+  ecolodge: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1000&q=72',
+} as const;
+
+const photoParSlug: Record<string, keyof typeof photos> = {
+  'ile-de-carabane': 'carabane', 'carabane-island': 'carabane',
+  'cap-skirring': 'plage',
+  oussouye: 'impluvium',
+  'kafountine-abene': 'mangrove',
+  'basse-casamance': 'pirogue', 'lower-casamance': 'pirogue',
+  'pirogue-bolongs': 'pirogue',
+  'observation-oiseaux': 'oiseaux',
+  'villages-poterie-diola': 'impluvium',
+  'marches-gastronomie': 'rizieres',
+  'balade-velo-rizieres': 'rizieres',
+  'surf-cap-skirring': 'plage',
+  'foret-diembering': 'mangrove',
+  'campement-kadiandoumagne': 'ecolodge', 'kadiandoumagne-campement': 'ecolodge',
+  'ecolodge-le-paletuvier': 'mangrove', 'le-paletuvier-ecolodge': 'mangrove',
+  'hotel-de-la-plage-cap-skirring': 'plage',
+  'hotel-balafon-cap-skirring': 'plage',
+  'hotel-maya-cap-skirring': 'hebergement',
+  'campement-carabane-nature': 'carabane', 'carabane-nature-campement': 'carabane',
+  'ecolodge-oussouye-village': 'impluvium', 'oussouye-village-ecolodge': 'impluvium',
+  'kafountine-beach-lodge': 'mangrove',
+  'casa-motel-ziguinchor': 'hebergement',
+  'atlantic-campement-abene': 'ecolodge',
 };
 
 function editorialGallery(slug: string, alt: string): ContentImage[] {
-  const photo = imageIds[slug] || imageIds['basse-casamance'];
+  const photo = photos[photoParSlug[slug] || 'mangrove'];
+  const thumbnail = photo
+    .replace('/1280px-', '/640px-')
+    .replace('w=1000', 'w=640');
   return [{
-    url: `https://images.unsplash.com/${photo}?auto=format&fit=crop&w=900&q=68`,
+    url: photo,
     alternativeText: alt,
     width: 900,
     height: 675,
+    formats: { thumbnail: { url: thumbnail, alternativeText: alt, width: 640, height: 480 } },
   }];
 }
 
@@ -137,6 +153,10 @@ function withIdentity<T extends { slug: string }>(items: T[], locale: Locale) {
 
 export function getContentImageUrl(image: ContentImage | null | undefined): string | null {
   return image?.url || null;
+}
+
+export function getContentThumbnailUrl(image: ContentImage | null | undefined): string | null {
+  return image?.formats?.thumbnail?.url || image?.url || null;
 }
 
 export async function getDestinations(locale = 'fr'): Promise<Destination[]> {
@@ -185,7 +205,7 @@ export async function getHebergements(locale = 'fr'): Promise<Hebergement[]> {
   const destinations = await getDestinations(locale);
   return withIdentity(data.hebergements[validLocale(locale)], locale as Locale).map((item) => ({
     ...item,
-    galerie: editorialGallery(item.slug, item.nom),
+    galerie: editorialGallery(item.slug, locale === 'en' ? 'Illustrative image of a stay in Casamance' : 'Image illustrative d’un hébergement en Casamance'),
     destination: destinations.find((destination) => destination.slug === item.destinationSlug) ?? null,
   }));
 }
