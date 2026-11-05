@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import content from '@/data/content.json';
-import { locales } from '@/lib/i18n';
+import content from '@/data/contenu.json';
+import { locales } from '@/lib/langues';
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://visitecasamance.com').replace(/\/$/, '');
 
