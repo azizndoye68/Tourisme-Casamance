@@ -15,11 +15,6 @@ Le site est construit avec **Next.js** et les pages sont exportées en fichiers 
 - `frontend/traductions/francais.json` et `frontend/traductions/anglais.json` : textes affichés dans chaque langue.
 - `frontend/src/styles/globals.css` : styles généraux du site.
 
-## Pourquoi certains fichiers gardent un nom anglais ?
-
-Next.js reconnaît les pages et leur structure grâce à des noms réservés. Il faut donc garder `page.tsx` pour une page et `layout.tsx` pour sa structure commune. Les noms entre parenthèses, comme `(accueil)` et `(vitrine)`, organisent le code sans apparaître dans l’adresse du site.
-
-Dans un dossier de page, `ListeHebergements.tsx` affiche la liste et `DetailHebergement.tsx` affiche une fiche. Le fichier voisin `page.tsx` relie le chemin web au bon composant.
 
 ## Commandes utiles
 
